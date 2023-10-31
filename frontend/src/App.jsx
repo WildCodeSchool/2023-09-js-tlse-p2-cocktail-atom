@@ -1,7 +1,7 @@
 import "./App.css";
 
 function App() {
-  return <section className="App" />;
+  return <div className="App" />;
 }
 
 export default App;
