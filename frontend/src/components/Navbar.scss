@@ -1,0 +1,121 @@
+:root {
+  padding: 0;
+  margin: 0;
+}
+
+@font-face {
+  font-family: "Oleo script";
+  src: url("../assets/fonts/OleoScript-Regular.ttf");
+}
+
+@font-face {
+  font-family: "JejuGothic";
+  src: url("../assets/fonts/JejuGothic-Regular.ttf");
+}
+
+.navbar {
+  background-color: #161723;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 8px;
+  height: 64px;
+
+  .burger-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    .nav-burger {
+      width: 48px;
+      height: 48px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: flex-end;
+
+      img {
+        width: 40px;
+        height: 40px;
+      }
+
+      p {
+        color: white;
+        text-align: center;
+        font-family: Oleo Script;
+        font-size: 1rem;
+        line-height: normal;
+      }
+    }
+  }
+
+  .filter-search {
+    display: flex;
+    align-items: center;
+
+    .filter {
+      display: flex;
+      padding: 0px 8px;
+      align-items: center;
+
+      img {
+        width: 24px;
+        height: 24px;
+      }
+
+      p {
+        color: white;
+        font-family: JejuGothic;
+        font-size: 0.8rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+      }
+    }
+
+    .search {
+      z-index: 2;
+      position: relative;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 8px;
+      border-radius: 8px;
+      padding-inline: 8px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: #161723;
+        border-radius: inherit;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        inset: -0.1rem;
+        z-index: -1;
+        background: linear-gradient(#d4ff00, #7dffe0);
+        border-radius: 10px;
+
+        // width: calc(100% + 2px);
+        // height: calc(100% + 2px);
+      }
+
+      input {
+        z-index: 1;
+        font-family: JejuGothic;
+        border: none;
+        background: transparent;
+        color: white;
+      }
+
+      *:focus {
+        outline: none;
+      }
+    }
+  }
+}
