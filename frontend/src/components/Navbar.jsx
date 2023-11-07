@@ -9,20 +9,23 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="burger-logo">
-        <img className="nav-burger" src={navBurger} alt="" />
+        <button type="button" className="nav-burger">
+          <img src={navBurger} alt="navigation logo" />
+        </button>
         <div className="logo">
           <img src={logoImage} alt="cocktail-atom logo" />
           <p>Cocktail-atom</p>
         </div>
       </div>
       <div className="filter-search">
-        <div className="filter">
+        <button type="button" className="filter">
           <img src={filterImage} alt="filter icon" />
           <p>Filter</p>
-        </div>
+        </button>
         <div className="search">
           <input placeholder="search" type="text" />
-          <img src={searchImage} alt="search icon" />
+          <img className="search-mobile" src={searchImage} alt="search icon" />
+          <img className="search-desktop" src={searchImage} alt="search icon" />
         </div>
       </div>
     </nav>
