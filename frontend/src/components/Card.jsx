@@ -10,14 +10,13 @@ function Card() {
   const [data, setData] = useState([]);
   const [favoriteImage, setfavoriteImage] = useState(true);
 
-  const url =
-    "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=bacardi";
+  const baseUrl = import.meta.env.VITE_API_BASE_URL;
 
   const fetchCocktailHandler = useCallback(() => {
     setLoading(true);
 
     axios
-      .get(url)
+      .get(`${baseUrl}s=bacardi`)
       .then((res) => {
         setData(res.data.drinks);
       })
