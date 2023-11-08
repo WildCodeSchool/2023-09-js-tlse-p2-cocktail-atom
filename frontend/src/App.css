@@ -127,3 +127,15 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+/* Font-style */
+
+@font-face {
+  font-family: "Oleo script";
+  src: url("./assets/fonts/OleoScript-Regular.ttf");
+}
+
+@font-face {
+  font-family: "JejuGothic";
+  src: url("./assets/fonts/JejuGothic-Regular.ttf");
+}

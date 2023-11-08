@@ -3,16 +3,6 @@
   margin: 0;
 }
 
-@font-face {
-  font-family: "Oleo script";
-  src: url("../assets/fonts/OleoScript-Regular.ttf");
-}
-
-@font-face {
-  font-family: "JejuGothic";
-  src: url("../assets/fonts/JejuGothic-Regular.ttf");
-}
-
 .navbar {
   background-color: #161723;
   display: flex;
@@ -67,7 +57,6 @@
 
     .filter {
       display: flex;
-      // padding: 0px 8px;
       align-items: center;
       background-color: transparent;
       border: none;
