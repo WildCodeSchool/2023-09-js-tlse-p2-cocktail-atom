@@ -1,0 +1,130 @@
+$background-color: #161723;
+$familyTitle: Oleo Script;
+$sizeTitle: 32px;
+$sizeParagraph: 16px;
+
+.styleCard {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  background-color: $background-color;
+  border-radius: 24px;
+  max-width: 768px;
+}
+
+.imagePart {
+  text-align: center;
+  margin: 16px;
+
+  .imageCocktail {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+  }
+}
+
+.textPart {
+  margin: 16px;
+}
+
+.title {
+  margin: 0px;
+  display: flex;
+  justify-content: space-between;
+
+  h2 {
+    font-size: 32px;
+    color: white;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+  }
+
+  img {
+    width: 40px;
+  }
+}
+
+.styleCard p {
+  font-size: $sizeParagraph;
+  margin: 3px;
+  color: white;
+}
+
+.ingredients {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-top: 8px;
+  margin-bottom: 8px;
+
+  h2 {
+    font-size: $sizeTitle;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+}
+
+.preparation h2 {
+  font-size: $sizeTitle;
+  color: white;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.buttonRandom {
+  text-align: center;
+  padding-top: 20px;
+
+  button {
+    background-color: rgb(148, 231, 15);
+    font-size: 30px;
+  }
+}
+
+.video-wrapper {
+  position: relative;
+  padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+  margin-top: 30px;
+
+  .video {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .styleCard {
+    max-width: 80%;
+  }
+
+  .textPart {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .recipeText {
+    margin-right: 16px;
+  }
+
+  .recipeVideo {
+    width: 50%;
+  }
+
+  .imagePart {
+    width: 100%;
+  }
+
+  .imagePart .imageCocktail {
+    width: 50%;
+    border-radius: 24px;
+  }
+}
