@@ -1,0 +1,35 @@
+.miniCard {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: #181818;
+  div {
+    display: flex;
+    margin-bottom: 20px;
+    width: 30vw;
+    background-color: #0e0e0e;
+    color: white;
+    div {
+      display: flex;
+      flex-direction: column;
+      margin-left: 16px;
+      margin-top: 16px;
+    }
+
+    img {
+      margin: auto 0;
+      width: 15vw;
+      height: 15vw;
+    }
+    h1 {
+      color: chartreuse;
+      font-size: 1.4rem;
+      font-family: Oleo script;
+    }
+    h3 {
+      font-size: 1rem;
+      font-family: JejuGothic;
+    }
+  }
+}

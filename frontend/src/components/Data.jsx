@@ -1,6 +1,5 @@
-import "./Data.css";
 import { useState, useEffect } from "react";
-
+import "./Data.scss";
 import axios from "axios";
 
 import FilterCardButton from "./FilterCardBatton";

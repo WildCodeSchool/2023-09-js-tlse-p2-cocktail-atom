@@ -92,7 +92,7 @@ function FilterMiniCard({ targetName, targetId }) {
   );
 }
 FilterMiniCard.propTypes = {
-  targetName: PropTypes.string.isRequired,
-  targetId: PropTypes.string.isRequired,
+  targetName: PropTypes.number.isRequired,
+  targetId: PropTypes.number.isRequired,
 };
 export default FilterMiniCard;

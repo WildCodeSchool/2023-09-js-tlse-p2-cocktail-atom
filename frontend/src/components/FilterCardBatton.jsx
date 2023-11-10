@@ -13,6 +13,7 @@ function FilterCardButton({ list, rut, setTargetName, setTargetId }) {
   return (
     <div className="filter">
       <button
+        className="cardButton"
         type="button"
         onClick={() => {
           setValuex(!valuex);
@@ -45,9 +46,9 @@ function FilterCardButton({ list, rut, setTargetName, setTargetId }) {
   );
 }
 FilterCardButton.propTypes = {
-  list: PropTypes.string.isRequired,
+  list: PropTypes.arrayOf.isRequired,
   rut: PropTypes.string.isRequired,
-  setTargetName: PropTypes.string.isRequired,
-  setTargetId: PropTypes.string.isRequired,
+  setTargetName: PropTypes.func.isRequired,
+  setTargetId: PropTypes.func.isRequired,
 };
 export default FilterCardButton;

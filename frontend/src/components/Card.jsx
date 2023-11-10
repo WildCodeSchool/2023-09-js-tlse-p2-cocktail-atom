@@ -1,7 +1,10 @@
 import React, { useState, useCallback, useEffect } from "react";
-import "./Card.scss";
+
 import axios from "axios";
+
 import ReactPlayer from "react-player";
+
+import "./Card.scss";
 import fillHeart from "../assets/icons/fillHeart.svg";
 import unfillHeart from "../assets/icons/unfillHeart.svg";
 
