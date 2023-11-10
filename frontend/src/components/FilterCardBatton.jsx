@@ -3,9 +3,9 @@ import { FixedSizeList as List } from "react-window";
 
 import PropTypes from "prop-types";
 
-function FilterCardButton({ list, rut, setTargetName, setTargetId }) {
+function FilterCardButton({ list, category, setTargetName, setTargetId }) {
   const [valuex, setValuex] = useState(true);
-  const hendelClick = (e) => {
+  const handelChange = (e) => {
     setTargetName(e.target.name);
     setTargetId(e.target.id);
   };
@@ -19,7 +19,7 @@ function FilterCardButton({ list, rut, setTargetName, setTargetId }) {
           setValuex(!valuex);
         }}
       >
-        {rut}
+        {category}
       </button>
       {valuex && (
         <List
@@ -33,9 +33,9 @@ function FilterCardButton({ list, rut, setTargetName, setTargetId }) {
             <button type="button" className="ListItemEven" style={style}>
               <input
                 type="checkbox"
-                onChange={hendelClick}
+                onChange={handelChange}
                 id={list[index]}
-                name={rut}
+                name={category}
               />
               <label htmlFor={list[index]}>{list[index]}</label>
             </button>
@@ -47,7 +47,7 @@ function FilterCardButton({ list, rut, setTargetName, setTargetId }) {
 }
 FilterCardButton.propTypes = {
   list: PropTypes.arrayOf.isRequired,
-  rut: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
   setTargetName: PropTypes.func.isRequired,
   setTargetId: PropTypes.func.isRequired,
 };

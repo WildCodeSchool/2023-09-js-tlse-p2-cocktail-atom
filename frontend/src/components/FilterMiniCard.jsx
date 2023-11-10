@@ -8,28 +8,22 @@ import MiniCard from "./MiniCard";
 function FilterMiniCard({ targetName, targetId }) {
   const [clickValue, setClickValue] = useState(null);
   const [mapValue, setMapValue] = useState(null);
-
   const [mapValueArrayFinal, setMapValueArrayFinal] = useState([]);
+
+  const apiUrl = import.meta.env.VITE_API_BASE_URL;
+
   const alcohoAray = [];
   const alcoholArayName = [];
 
   useEffect(() => {
     if (targetName === "alcohol" || targetName === "ingridient") {
-      axios
-        .get(
-          `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${targetId}`
-        )
-        .then((res) => {
-          setClickValue(res.data.drinks);
-        });
+      axios.get(`${apiUrl}filter.php?i=${targetId}`).then((res) => {
+        setClickValue(res.data.drinks);
+      });
     } else if (targetName === "category")
-      axios
-        .get(
-          `https://www.thecocktaildb.com/api/json/v1/1/filter.php?c=${targetId}`
-        )
-        .then((res) => {
-          setClickValue(res.data.drinks);
-        });
+      axios.get(`${apiUrl}filter.php?c=${targetId}`).then((res) => {
+        setClickValue(res.data.drinks);
+      });
   }, [targetId]);
 
   const mapFilter = (alco1, alco2) => {
@@ -63,9 +57,7 @@ function FilterMiniCard({ targetName, targetId }) {
         for (let i = 0; i < mapValue.length; i += 1) {
           const shersh = mapValue[i];
           axios
-            .get(
-              `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${shersh}`
-            )
+            .get(`${apiUrl}search.php?s=${shersh}`)
             .then((res) =>
               setMapValueArrayFinal((oldMap) => [...oldMap, res.data.drinks[0]])
             );
@@ -74,9 +66,7 @@ function FilterMiniCard({ targetName, targetId }) {
         for (let i = 0; i < 50; i += 1) {
           const shersh = mapValue[i];
           axios
-            .get(
-              `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${shersh}`
-            )
+            .get(`${apiUrl}search.php?s=${shersh}`)
             .then((res) =>
               setMapValueArrayFinal((oldMap) => [...oldMap, res.data.drinks[0]])
             );

@@ -7,24 +7,17 @@ import FilterCardButton from "./FilterCardBatton";
 import FilterMiniCard from "./FilterMiniCard";
 
 function Data() {
-  //   const [alcoholIngredientAPI, setAlcoholIngredientAPI] = useState([]);
-
-  //   const [alcohols, setAlcohols] = useState("");
-  //   const [ingredients, setIngredients] = useState[null];
-  //   useEffect(() => {
-  //     axios
-  //       .get("https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list")
-  //       .then((res) => setAlcoholIngredientAPI(res.data.drinks));
-  //   }, []);
   const [category, setCategori] = useState("");
   const [targetName, setTargetName] = useState(null);
   const [targetId, setTargetId] = useState(null);
+
+  const apiUrl = import.meta.env.VITE_API_BASE_URL;
+
   useEffect(() => {
-    axios
-      .get("https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list")
-      .then((res) => setCategori(res.data.drinks));
+    axios.get(`${apiUrl}list.php?c=list`).then((response) => {
+      setCategori(response.data.drinks);
+    });
   }, []);
-  // console.log(category[1]);
   const alcoholIngredient = [
     { strIngredient1: "Light rum", alcohol: true },
     { strIngredient1: "Applejack", alcohol: true },
@@ -145,19 +138,19 @@ function Data() {
       <div className="data">
         <FilterCardButton
           list={listAlcohol}
-          rut="alcohol"
+          category="alcohol"
           setTargetName={setTargetName}
           setTargetId={setTargetId}
         />
         <FilterCardButton
           list={listIngredient}
-          rut="ingridient"
+          category="ingridient"
           setTargetName={setTargetName}
           setTargetId={setTargetId}
         />
         <FilterCardButton
           list={listCategory}
-          rut="category"
+          category="category"
           setTargetName={setTargetName}
           setTargetId={setTargetId}
         />
