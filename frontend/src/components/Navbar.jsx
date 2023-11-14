@@ -7,10 +7,12 @@ import quit from "../assets/icons/quit.svg";
 import "./Navbar.scss";
 import OverlayBurger from "./OverlayBurger";
 import Data from "./Data";
+import AlertAge from "./AlertAge";
 
 function Navbar() {
   const [navBurgerOpen, setNavBurgerOpen] = useState(false);
   const [navFilterOpen, setNavFilterOpen] = useState(false);
+  const [alertAge, setAlertAge] = useState(true);
 
   return (
     <>
@@ -60,7 +62,8 @@ function Navbar() {
         isOpen={navBurgerOpen}
         onClose={() => setNavBurgerOpen(!navBurgerOpen)}
       />
-      {navFilterOpen && <Data />}
+      <AlertAge setAlertAge={setAlertAge} />
+      {navFilterOpen && <Data alertAge={alertAge} />}
     </>
   );
 }

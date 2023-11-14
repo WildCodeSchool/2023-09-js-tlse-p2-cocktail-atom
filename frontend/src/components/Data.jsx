@@ -1,8 +1,15 @@
+import { useEffect, useState } from "react";
 import "./Data.scss";
-
+import PropTypes from "prop-types";
 import FilterCardButton from "./FilterCardButton";
 
-function Data() {
+function Data({ alertAge }) {
+  const [alcohol, setAlcohol] = useState(true);
+  useEffect(() => {
+    if (alertAge === false) {
+      setAlcohol(false);
+    }
+  }, []);
   const alcoholIngredient = [
     { strIngredient1: "Light rum", alcohol: true },
     { strIngredient1: "Applejack", alcohol: true },
@@ -118,10 +125,41 @@ function Data() {
 
   return (
     <div className="data">
-      <FilterCardButton list={listAlcohol} category="alcohol" />
-      <FilterCardButton list={listIngredient} category="ingredient" />
+      <h1>{alcohol}</h1>
+      <div>
+        {alertAge === false ? (
+          <h1 className="cardButton">AlcoholicH1</h1>
+        ) : (
+          <button
+            type="button"
+            className="cardButton"
+            id="alcoholic"
+            onClick={() => {
+              setAlcohol(true);
+            }}
+          >
+            Alcoholic
+          </button>
+        )}
+        <button
+          type="button"
+          className="cardButton"
+          id="non-lcoholic"
+          onClick={() => {
+            setAlcohol(false);
+          }}
+        >
+          Non Alcoholic
+        </button>
+      </div>
+      <div>
+        <FilterCardButton list={listAlcohol} category="alcohol" />
+        <FilterCardButton list={listIngredient} category="ingredient" />
+      </div>
     </div>
   );
 }
-
+Data.propTypes = {
+  alertAge: PropTypes.bool.isRequired,
+};
 export default Data;
