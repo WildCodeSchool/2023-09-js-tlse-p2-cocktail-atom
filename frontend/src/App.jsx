@@ -1,13 +1,18 @@
 import "./App.css";
+import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import AlertAge from "./components/AlertAge";
+import ApiProvider from "./contexts/ApiContext";
 
 function App() {
   return (
-    <div className="App">
-      <AlertAge />
-      <Navbar />
-    </div>
+    <ApiProvider>
+      <nav>
+        <Navbar />
+      </nav>
+      <main className="App">
+        <Outlet />
+      </main>
+    </ApiProvider>
   );
 }
 
