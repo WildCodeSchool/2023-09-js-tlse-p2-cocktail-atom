@@ -139,20 +139,23 @@
         height: 24px;
         width: calc(100% - 24px);
       }
+      button {
+        border: none;
+        background: none;
+        .search-desktop {
+          width: 24px;
+          height: 24px;
+        }
 
-      .search-desktop {
-        width: 24px;
-        height: 24px;
-      }
+        .search-mobile {
+          display: none;
+        }
 
-      .search-mobile {
-        display: none;
-      }
-
-      img:active {
-        width: 20px;
-        height: 20px;
-        padding: 2px;
+        img:active {
+          width: 20px;
+          height: 20px;
+          padding: 2px;
+        }
       }
 
       *:focus {
@@ -175,15 +178,16 @@
         input {
           display: none;
         }
+        button {
+          .search-mobile {
+            display: block;
+            width: 24px;
+            height: 24px;
+          }
 
-        .search-mobile {
-          display: block;
-          width: 24px;
-          height: 24px;
-        }
-
-        .search-desktop {
-          display: none;
+          .search-desktop {
+            display: none;
+          }
         }
       }
     }
