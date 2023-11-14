@@ -7,9 +7,11 @@ import navBurger from "../assets/icons/burger.svg";
 import quit from "../assets/icons/quit.svg";
 import "./Navbar.scss";
 import OverlayBurger from "./OverlayBurger";
+import Data from "./Data";
 
 function Navbar() {
   const [navBurgerOpen, setNavBurgerOpen] = useState(false);
+  const [navFilterOpen, setNavFilterOpen] = useState(false);
   const [searching, setSearching] = useState("");
 
   const navigate = useNavigate();
@@ -41,7 +43,11 @@ function Navbar() {
           </div>
         </div>
         <div className="filter-search">
-          <button type="button" className="filter">
+          <button
+            type="button"
+            className="filter"
+            onClick={() => setNavFilterOpen(!navFilterOpen)}
+          >
             <img src={filterImage} alt="filter icon" />
             <p>Filter</p>
           </button>
@@ -81,6 +87,7 @@ function Navbar() {
         isOpen={navBurgerOpen}
         onClose={() => setNavBurgerOpen(!navBurgerOpen)}
       />
+      {navFilterOpen && <Data />}
     </>
   );
 }
