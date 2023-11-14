@@ -5,7 +5,7 @@ function AlertAge() {
   const [showAlert, setShowAlert] = useState(true);
 
   useEffect(() => {
-    setShowAlert(true);
+    setShowAlert(false);
   }, []);
 
   const handleButtonClick = (choice) => {

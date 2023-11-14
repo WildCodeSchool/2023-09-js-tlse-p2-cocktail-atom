@@ -1,0 +1,77 @@
+$background-color: #161723;
+
+body {
+  background-color: $background-color;
+  font-family: "Oleo Script";
+}
+
+.bodyHome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+
+  .imageHome {
+    overflow: hidden;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .descriptionHome {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 8px;
+
+    .Title {
+      font-size: 2rem;
+      background: var(
+        --Lime,
+        linear-gradient(180deg, #d4ff00 0%, #7dffe0 100%)
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .secondTitle {
+      font-size: 2rem;
+      background: var(
+        --Lime,
+        linear-gradient(180deg, #d4ff00 0%, #7dffe0 100%)
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  .bodyHome {
+    background: url("../assets/images/home-cocktail.jpg") center/cover no-repeat;
+
+    .imageHome {
+      img {
+        display: none;
+      }
+    }
+
+    .descriptionHome {
+      .Title {
+        font-size: 3rem;
+      }
+
+      .secondTitle {
+        font-size: 3rem;
+        margin-top: 100px;
+      }
+    }
+  }
+}

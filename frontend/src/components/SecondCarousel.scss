@@ -1,0 +1,482 @@
+#secondCarousel {
+  height: 180px;
+  width: 350px;
+  margin: auto;
+  position: relative;
+
+  .arrow {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: white;
+    text-align: center;
+    font-size: 25px;
+    border-radius: 0 0 50% 50%;
+    clip-path: polygon(50% 0%, 100% 90%, 0% 90%);
+    transform: rotate(-90deg);
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 40px;
+    z-index: 800;
+  }
+
+  .arrow-right {
+    left: 325px;
+    transform: rotate(90deg);
+  }
+
+  .item {
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    position: absolute;
+    transition: all 1s;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .imageLabel {
+      font-size: 20px;
+      text-align: center;
+      height: 30px;
+    }
+  }
+
+  $level2-height: 150px;
+  $level2-width: 150px;
+  $level1-height: 80px;
+  $level1-width: 80px;
+  $level0-height: 130px;
+  $level0-width: 130px;
+
+  $level-2-left: 0px;
+  $level-1-left: 245px;
+  $level0-left: 110px;
+  $level1-left: 25px;
+  $level2-left: 0px;
+
+  .level-2 {
+    height: $level2-height;
+    width: $level2-width;
+    background-color: #228291;
+    left: $level-2-left;
+    margin-top: 25px;
+    display: none;
+  }
+
+  .level-1 {
+    height: $level1-height;
+    width: $level1-width;
+    background-color: #6796e5;
+    left: $level-1-left;
+    margin-top: 10px;
+  }
+
+  .level0 {
+    height: $level0-height;
+    width: $level0-width;
+    background-color: #4ec9e1;
+    left: $level0-left;
+  }
+
+  .level1 {
+    height: $level1-height;
+    width: $level1-width;
+    background-color: #6796e5;
+    margin-top: 10px;
+    left: $level1-left;
+  }
+
+  .level2 {
+    height: $level2-height;
+    width: $level2-width;
+    background-color: #228291;
+    margin-top: 25px;
+    left: $level2-left;
+    display: none;
+  }
+
+  .left-enter {
+    opacity: 0;
+    left: $level2-left - $level2-width;
+    height: $level2-height - 30;
+    width: $level2-width - 20;
+    line-height: $level2-height - 30;
+    margin-top: 40px;
+  }
+
+  .left-enter.left-enter-active {
+    opacity: 1;
+    left: $level2-left;
+    height: $level2-height;
+    width: $level2-width;
+    line-height: $level2-height;
+    margin-top: 25px;
+    transition: all 1s;
+  }
+
+  .left-leave {
+    opacity: 1;
+    left: $level-2-left;
+    height: $level2-height;
+    width: $level2-width;
+    line-height: $level2-height;
+    margin-top: 25px;
+  }
+
+  .left-leave.left-leave-active {
+    left: $level-2-left + $level2-width + 20;
+    opacity: 0;
+    height: $level2-height - 30;
+    line-height: 120px;
+    margin-top: 40px;
+    width: $level2-width - 20;
+    transition: all 1s;
+  }
+
+  .right-enter {
+    opacity: 0;
+    left: $level-2-left + $level2-width;
+    height: $level2-height - 30;
+    width: $level2-width - 20;
+    line-height: $level2-height - 30;
+    margin-top: 40px;
+  }
+
+  .right-enter.right-enter-active {
+    left: $level-2-left;
+    opacity: 1;
+    height: $level2-height;
+    margin-top: 25px;
+    line-height: $level2-height;
+    width: $level2-width;
+    transition: all 1s;
+  }
+
+  .right-leave {
+    left: $level2-left;
+    height: $level2-height;
+    opacity: 1;
+    margin-top: 25px;
+    line-height: $level2-height;
+    width: $level2-width;
+  }
+
+  .right-leave.right-leave-active {
+    left: $level2-left - $level2-width;
+    opacity: 0;
+    height: $level2-height - 30;
+    width: $level2-width - 20;
+    line-height: $level2-height - 30;
+    margin-top: 40px;
+    transition: all 1s;
+  }
+
+  .noselect {
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
+@media (min-width: 600px) {
+  #secondCarousel {
+    height: 200px;
+    width: 510px;
+
+    .arrow {
+      width: 25px;
+      height: 25px;
+      margin-top: 65px;
+    }
+
+    .arrow-right {
+      left: 485px;
+    }
+
+    .item {
+      .imageLabel {
+        font-size: 24px;
+      }
+    }
+
+    $level2-height: 150px;
+    $level2-width: 150px;
+    $level1-height: 130px;
+    $level1-width: 130px;
+    $level0-height: 180px;
+    $level0-width: 180px;
+
+    $level-2-left: 0px;
+    $level-1-left: 350px;
+    $level0-left: 165px;
+    $level1-left: 30px;
+    $level2-left: 0px;
+
+    .level-2 {
+      height: $level2-height;
+      width: $level2-width;
+      background-color: #228291;
+      left: $level-2-left;
+      margin-top: 25px;
+      display: none;
+    }
+
+    .level-1 {
+      height: $level1-height;
+      width: $level1-width;
+      background-color: #6796e5;
+      left: $level-1-left;
+      margin-top: 10px;
+    }
+
+    .level0 {
+      height: $level0-height;
+      width: $level0-width;
+      background-color: #4ec9e1;
+      left: $level0-left;
+    }
+
+    .level1 {
+      height: $level1-height;
+      width: $level1-width;
+      background-color: #6796e5;
+      margin-top: 10px;
+      left: $level1-left;
+    }
+
+    .level2 {
+      height: $level2-height;
+      width: $level2-width;
+      background-color: #228291;
+      margin-top: 25px;
+      left: $level2-left;
+      display: none;
+    }
+
+    .left-enter {
+      opacity: 0;
+      left: $level2-left - $level2-width;
+      height: $level2-height - 30;
+      width: $level2-width - 20;
+      line-height: $level2-height - 30;
+      margin-top: 40px;
+    }
+
+    .left-enter.left-enter-active {
+      opacity: 1;
+      left: $level2-left;
+      height: $level2-height;
+      width: $level2-width;
+      line-height: $level2-height;
+      margin-top: 25px;
+      transition: all 1s;
+    }
+
+    .left-leave {
+      opacity: 1;
+      left: $level-2-left;
+      height: $level2-height;
+      width: $level2-width;
+      line-height: $level2-height;
+      margin-top: 25px;
+    }
+
+    .left-leave.left-leave-active {
+      left: $level-2-left + $level2-width + 20;
+      opacity: 0;
+      height: $level2-height - 30;
+      line-height: 120px;
+      margin-top: 40px;
+      width: $level2-width - 20;
+      transition: all 1s;
+    }
+
+    .right-enter {
+      opacity: 0;
+      left: $level-2-left + $level2-width;
+      height: $level2-height - 30;
+      width: $level2-width - 20;
+      line-height: $level2-height - 30;
+      margin-top: 40px;
+    }
+
+    .right-enter.right-enter-active {
+      left: $level-2-left;
+      opacity: 1;
+      height: $level2-height;
+      margin-top: 25px;
+      line-height: $level2-height;
+      width: $level2-width;
+      transition: all 1s;
+    }
+
+    .right-leave {
+      left: $level2-left;
+      height: $level2-height;
+      opacity: 1;
+      margin-top: 25px;
+      line-height: $level2-height;
+      width: $level2-width;
+    }
+
+    .right-leave.right-leave-active {
+      left: $level2-left - $level2-width;
+      opacity: 0;
+      height: $level2-height - 30;
+      width: $level2-width - 20;
+      line-height: $level2-height - 30;
+      margin-top: 40px;
+      transition: all 1s;
+    }
+  }
+}
+
+@media (min-width: 1024px) {
+  #secondCarousel {
+    height: 210px;
+    width: 1000px;
+
+    .arrow {
+      width: 30px;
+      height: 30px;
+      margin-top: 90px;
+    }
+
+    .arrow-right {
+      left: 960px;
+    }
+
+    $level2-height: 150px;
+    $level2-width: 150px;
+    $level1-height: 180px;
+    $level1-width: 180px;
+    $level0-height: 210px;
+    $level0-width: 210px;
+
+    $level-2-left: 800px;
+    $level-1-left: 610px;
+    $level0-left: 390px;
+    $level1-left: 200px;
+    $level2-left: 40px;
+
+    .level-2 {
+      height: $level2-height;
+      width: $level2-width;
+      left: $level-2-left;
+      margin-top: 25px;
+      display: block;
+    }
+
+    .level-1 {
+      height: $level1-height;
+      width: $level1-width;
+      left: $level-1-left;
+      margin-top: 10px;
+    }
+
+    .level0 {
+      height: $level0-height;
+      width: $level0-width;
+      left: $level0-left;
+    }
+
+    .level1 {
+      height: $level1-height;
+      width: $level1-width;
+      margin-top: 10px;
+      left: $level1-left;
+    }
+
+    .level2 {
+      height: $level2-height;
+      width: $level2-width;
+      margin-top: 25px;
+      left: $level2-left;
+      display: block;
+    }
+
+    .left-enter {
+      opacity: 0;
+      left: $level2-left - $level2-width;
+      height: $level2-height - 30;
+      width: $level2-width - 20;
+      line-height: $level2-height - 30;
+      margin-top: 40px;
+    }
+
+    .left-enter.left-enter-active {
+      opacity: 1;
+      left: $level2-left;
+      height: $level2-height;
+      width: $level2-width;
+      line-height: $level2-height;
+      margin-top: 25px;
+      transition: all 1s;
+    }
+
+    .left-leave {
+      opacity: 1;
+      left: $level-2-left;
+      height: $level2-height;
+      width: $level2-width;
+      line-height: $level2-height;
+      margin-top: 25px;
+    }
+
+    .left-leave.left-leave-active {
+      left: $level-2-left + $level2-width + 20;
+      opacity: 0;
+      height: $level2-height - 30;
+      line-height: 120px;
+      margin-top: 40px;
+      width: $level2-width - 20;
+      transition: all 1s;
+    }
+
+    .right-enter {
+      opacity: 0;
+      left: $level-2-left + $level2-width;
+      height: $level2-height - 30;
+      width: $level2-width - 20;
+      line-height: $level2-height - 30;
+      margin-top: 40px;
+    }
+
+    .right-enter.right-enter-active {
+      left: $level-2-left;
+      opacity: 1;
+      height: $level2-height;
+      margin-top: 25px;
+      line-height: $level2-height;
+      width: $level2-width;
+      transition: all 1s;
+    }
+
+    .right-leave {
+      left: $level2-left;
+      height: $level2-height;
+      opacity: 1;
+      margin-top: 25px;
+      line-height: $level2-height;
+      width: $level2-width;
+    }
+
+    .right-leave.right-leave-active {
+      left: $level2-left - $level2-width;
+      opacity: 0;
+      height: $level2-height - 30;
+      width: $level2-width - 20;
+      line-height: $level2-height - 30;
+      margin-top: 40px;
+      transition: all 1s;
+    }
+  }
+}
