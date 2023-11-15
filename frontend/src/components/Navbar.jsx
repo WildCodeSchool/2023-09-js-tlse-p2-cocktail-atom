@@ -17,7 +17,7 @@ function Navbar() {
   const navigate = useNavigate();
 
   const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && searching.trim() !== "") {
       navigate(`/search/${searching}`);
     }
   };
@@ -61,24 +61,19 @@ function Navbar() {
               }}
               onKeyDown={handleKeyDown}
             />
-            <button type="button">
-              <img
-                className="search-mobile"
-                src={searchImage}
-                alt="search icon"
-              />
+            <button className="search-mobile" type="button">
+              <img src={searchImage} alt="search icon" />
             </button>
             <button
+              className="search-desktop"
               type="button"
               onClick={() => {
-                navigate(`/search/${searching}`);
+                if (searching.trim() !== "") {
+                  navigate(`/search/${searching}`);
+                }
               }}
             >
-              <img
-                className="search-desktop"
-                src={searchImage}
-                alt="search icon"
-              />
+              <img src={searchImage} alt="search icon" />
             </button>
           </div>
         </div>
