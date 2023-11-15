@@ -7,11 +7,7 @@ function AlertAge({ setAlertAge }) {
 
   const handleButtonClick = (choice) => {
     if (choice === "No") {
-      // Faire apparaitre le site avec tout les cocktails
-
       setAlertAge(false);
-    } else {
-      // Faire apparaitre le site avec tout les cocktails sans alcools
     }
     setShowAlert(false);
   };

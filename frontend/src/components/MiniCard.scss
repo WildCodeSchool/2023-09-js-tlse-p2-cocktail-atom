@@ -1,0 +1,12 @@
+.mini-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  .card {
+    display: flex;
+    color: white;
+    img {
+      width: 15vw;
+      height: 15vw;
+    }
+  }
+}

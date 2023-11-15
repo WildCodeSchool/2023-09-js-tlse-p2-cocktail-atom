@@ -15,6 +15,7 @@ function Navbar() {
   const [navFilterOpen, setNavFilterOpen] = useState(false);
   const [alertAge, setAlertAge] = useState(true);
   const [searching, setSearching] = useState("");
+  const [value, setValue] = useState(true);
 
   const navigate = useNavigate();
 
@@ -63,7 +64,12 @@ function Navbar() {
               }}
               onKeyDown={handleKeyDown}
             />
-            <button type="button">
+            <button
+              type="button"
+              onClick={() => {
+                setValue(false);
+              }}
+            >
               <img
                 className="search-mobile"
                 src={searchImage}
@@ -90,7 +96,9 @@ function Navbar() {
         onClose={() => setNavBurgerOpen(!navBurgerOpen)}
       />
       <AlertAge setAlertAge={setAlertAge} />
-      {navFilterOpen && <Data alertAge={alertAge} />}
+      {navFilterOpen && (
+        <Data alertAge={alertAge} value={value} setValue={setValue} />
+      )}
     </>
   );
 }

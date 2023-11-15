@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import "./Data.scss";
 import PropTypes from "prop-types";
-import FilterCardButton from "./FilterCardButton";
+import FilterCardButton from "./ FilterCardButton";
+import FilperMiniCard from "./FilperMiniCard";
 
 function Data({ alertAge }) {
   const [alcohol, setAlcohol] = useState(true);
+  const [targetId, setTargetId] = useState(null);
   useEffect(() => {
     if (alertAge === false) {
       setAlcohol(false);
@@ -125,8 +127,7 @@ function Data({ alertAge }) {
 
   return (
     <div className="data">
-      <h1>{alcohol}</h1>
-      <div>
+      <div className="alcoholic">
         {alertAge === false ? (
           <h1 className="cardButton">AlcoholicH1</h1>
         ) : (
@@ -152,10 +153,20 @@ function Data({ alertAge }) {
           Non Alcoholic
         </button>
       </div>
-      <div>
-        <FilterCardButton list={listAlcohol} category="alcohol" />
-        <FilterCardButton list={listIngredient} category="ingredient" />
+      <div className="cart-button">
+        <FilterCardButton
+          listCategory={listAlcohol}
+          category="alcohol"
+          setTargetId={setTargetId}
+        />
+        <FilterCardButton
+          listCategory={listIngredient}
+          category="ingredient"
+          setTargetId={setTargetId}
+        />
       </div>
+      <FilperMiniCard targetId={targetId} />
+      <h1>{alcohol}</h1>
     </div>
   );
 }
