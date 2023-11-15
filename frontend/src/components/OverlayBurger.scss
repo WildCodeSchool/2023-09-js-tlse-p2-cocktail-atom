@@ -1,6 +1,6 @@
 .overlay {
   background-color: rgba(0, 0, 0, 0.5);
-
+  backdrop-filter: blur(4px);
   width: 100vw;
   height: calc(100vh - 64px);
   position: fixed;
@@ -21,7 +21,7 @@
     z-index: 4;
     align-items: flex-start;
 
-    button {
+    .burger-button {
       display: flex;
       width: 400px;
       height: 120px;
@@ -33,6 +33,7 @@
       z-index: 4;
       position: relative;
       color: white;
+      text-decoration: none;
       font-family: Oleo Script;
       font-size: 3rem;
 
@@ -55,11 +56,11 @@
       }
     }
 
-    button:hover {
+    .burger-button:hover {
       width: 360px;
     }
 
-    button:active {
+    .burger-button:active {
       width: 420px;
     }
   }
@@ -78,18 +79,18 @@
 @media screen and (max-width: 480px) {
   .overlay {
     .overlay_container {
-      button {
+      .burger-button {
         width: 260px;
         height: 80px;
         padding-inline: 32px;
         font-size: 2rem;
       }
 
-      button:hover {
+      .burger-button:hover {
         width: 260px;
       }
 
-      button:active {
+      .burger-button:active {
         width: 300px;
       }
     }
