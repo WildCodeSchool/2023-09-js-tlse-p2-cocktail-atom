@@ -139,3 +139,7 @@ table {
   font-family: "JejuGothic";
   src: url("./assets/fonts/JejuGothic-Regular.ttf");
 }
+
+.background {
+  background: linear-gradient(#11252e 0%, #020e01 100%);
+}

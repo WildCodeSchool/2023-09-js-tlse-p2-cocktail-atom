@@ -7,13 +7,15 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <ApiProvider>
-      <nav>
-        <Navbar />
-      </nav>
-      <main className="App">
-        <Outlet />
-      </main>
-      <Footer />
+      <div className="background">
+        <nav>
+          <Navbar />
+        </nav>
+        <main className="App">
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
     </ApiProvider>
   );
 }

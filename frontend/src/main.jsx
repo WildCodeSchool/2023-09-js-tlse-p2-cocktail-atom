@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import App from "./App";
 import CocktailBySearch from "./components/CocktailBySearch";
+import AboutUs from "./components/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
       { path: "/search/:name", element: <CocktailBySearch /> },
       { path: "/favorite", element: <>Insert element for Favorite</> },
       { path: "/random", element: <>Insert element for Random Drink</> },
-      { path: "/about", element: <>Insert element for About us</> },
+      { path: "/about", element: <AboutUs /> },
     ],
   },
 ]);
