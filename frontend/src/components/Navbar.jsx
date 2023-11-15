@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logoImage from "../assets/icons/logo.svg";
 import filterImage from "../assets/icons/filter.svg";
 import searchImage from "../assets/icons/search.svg";
@@ -6,9 +7,20 @@ import navBurger from "../assets/icons/burger.svg";
 import quit from "../assets/icons/quit.svg";
 import "./Navbar.scss";
 import OverlayBurger from "./OverlayBurger";
+import Data from "./Data";
 
 function Navbar() {
   const [navBurgerOpen, setNavBurgerOpen] = useState(false);
+  const [navFilterOpen, setNavFilterOpen] = useState(false);
+  const [searching, setSearching] = useState("");
+
+  const navigate = useNavigate();
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      navigate(`/search/${searching}`);
+    }
+  };
 
   return (
     <>
@@ -31,22 +43,43 @@ function Navbar() {
           </div>
         </div>
         <div className="filter-search">
-          <button type="button" className="filter">
+          <button
+            type="button"
+            className="filter"
+            onClick={() => setNavFilterOpen(!navFilterOpen)}
+          >
             <img src={filterImage} alt="filter icon" />
             <p>Filter</p>
           </button>
-          <div className="search">
-            <input placeholder="search" type="text" />
-            <img
-              className="search-mobile"
-              src={searchImage}
-              alt="search icon"
+          <div className="search" onSubmit={(e) => e.preventDefault()}>
+            <input
+              placeholder="search"
+              type="text"
+              value={searching}
+              onChange={(e) => {
+                setSearching(e.target.value);
+              }}
+              onKeyDown={handleKeyDown}
             />
-            <img
-              className="search-desktop"
-              src={searchImage}
-              alt="search icon"
-            />
+            <button type="button">
+              <img
+                className="search-mobile"
+                src={searchImage}
+                alt="search icon"
+              />
+            </button>
+            <button
+              type="button"
+              onClick={() => {
+                navigate(`/search/${searching}`);
+              }}
+            >
+              <img
+                className="search-desktop"
+                src={searchImage}
+                alt="search icon"
+              />
+            </button>
           </div>
         </div>
       </nav>
@@ -54,6 +87,7 @@ function Navbar() {
         isOpen={navBurgerOpen}
         onClose={() => setNavBurgerOpen(!navBurgerOpen)}
       />
+      {navFilterOpen && <Data />}
     </>
   );
 }
