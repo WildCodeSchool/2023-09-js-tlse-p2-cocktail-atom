@@ -58,9 +58,8 @@ body {
     background: url("../assets/images/home-cocktail.jpg") center/cover no-repeat;
 
     .imageHome {
-      img {
-        display: none;
-      }
+      width: 0px;
+      height: 0px;
     }
 
     .descriptionHome {
