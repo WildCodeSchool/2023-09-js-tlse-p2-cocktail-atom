@@ -13,7 +13,7 @@ function Footer() {
           <a href="https://www.instagram.com/cocktail.atom/">
             <img src={instagramLogo} alt="instagram logo" />
           </a>
-          <a href="https://www.instagram.com/cocktail.atom/">
+          <a href="https://twitter.com/Cocktail_atom">
             <img src={twitterLogo} alt="twitter/X logo" />
           </a>
           <a href="mailto:cocktail.atom@gmail.com">
