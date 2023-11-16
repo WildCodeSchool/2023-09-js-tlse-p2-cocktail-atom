@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Carousel.scss";
 import PropTypes from "prop-types";
 import Cosmopolitain from "../assets/images/Cosmopolitain.jpg";
@@ -10,19 +10,16 @@ import Mimosa from "../assets/images/Mimosa.jpg";
 import Mojito from "../assets/images/Mojito.jpg";
 import Negroni from "../assets/images/Negroni.jpg";
 import Fashioned from "../assets/images/Old-fashioned.jpg";
-import Sex from "../assets/images/Sex-on-the-beach.jpg";
+import Gimlet from "../assets/images/Gimlet.jpg";
+import { useData } from "../contexts/ApiContext";
 
-function Carousel({ items, active }) {
+function Carousel({ items, active, onImageClick }) {
   Carousel.propTypes = {
-    items: PropTypes.arrayOf(
-      PropTypes.shape({
-        src: PropTypes.string,
-        name: PropTypes.string,
-      })
-    ).isRequired,
+    items: PropTypes.arrayOf(PropTypes.number).isRequired,
     active: PropTypes.number.isRequired,
+    onImageClick: PropTypes.func.isRequired,
   };
-
+  const { data } = useData();
   const [carouselState, setCarouselState] = useState({
     items,
     active,
@@ -30,17 +27,25 @@ function Carousel({ items, active }) {
   });
 
   const images = [
-    { src: Cosmopolitain, name: "Cosmopolitain" },
-    { src: Daquiri, name: "Daquiri" },
-    { src: DryMartini, name: "Dry Martini" },
-    { src: Manhattan, name: "Manhattan" },
-    { src: Margarita, name: "Margarita" },
-    { src: Mimosa, name: "Mimosa" },
-    { src: Mojito, name: "Mojito" },
-    { src: Negroni, name: "Negroni" },
-    { src: Fashioned, name: "Old Fashioned" },
-    { src: Sex, name: "Sex on the Beach" },
+    { idDrink: "17196", src: Cosmopolitain, name: "Cosmopolitain" },
+    { idDrink: "11006", src: Daquiri, name: "Daiquiri" },
+    { idDrink: "11005", src: DryMartini, name: "Dry Martini" },
+    { idDrink: "11008", src: Manhattan, name: "Manhattan" },
+    { idDrink: "11007", src: Margarita, name: "Margarita" },
+    { idDrink: "17205", src: Mimosa, name: "Mimosa" },
+    { idDrink: "11000", src: Mojito, name: "Mojito" },
+    { idDrink: "11003", src: Negroni, name: "Negroni" },
+    { idDrink: "11001", src: Fashioned, name: "Old Fashioned" },
+    { idDrink: "17255", src: Gimlet, name: "Gimlet" },
   ];
+
+  useEffect(() => {
+    if (data) {
+      data.find((drink) => {
+        return drink.idDrink === images[carouselState.active]?.idDrink;
+      });
+    }
+  }, [data, carouselState.active]);
 
   const generateItems = () => {
     const itemsArray = [];
@@ -61,7 +66,14 @@ function Carousel({ items, active }) {
 
       level = carouselState.active - i;
       itemsArray.push(
-        <div key={index} className={`item level${level}`}>
+        <div
+          key={index}
+          className={`item level${level}`}
+          onClick={() => onImageClick(images[index].idDrink)}
+          onKeyDown={() => onImageClick(images[index].idDrink)}
+          role="button"
+          tabIndex={0}
+        >
           <img src={images[index].src} alt={images[index].name} />
           <div className="imageLabel">{images[index].name}</div>
         </div>

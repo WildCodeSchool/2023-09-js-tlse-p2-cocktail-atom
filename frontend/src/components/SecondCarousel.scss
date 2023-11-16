@@ -32,6 +32,7 @@
     font-size: 40px;
     position: absolute;
     transition: all 1s;
+    border: 1px solid;
 
     img {
       max-width: 100%;
@@ -40,10 +41,11 @@
       margin-bottom: 5px;
     }
 
-    .imageLabel {
+    .cocktailName {
       font-size: 20px;
       text-align: center;
       height: 30px;
+      text-shadow: 3px 2px 2px #000;
     }
   }
 
@@ -63,7 +65,6 @@
   .level-2 {
     height: $level2-height;
     width: $level2-width;
-    background-color: #228291;
     left: $level-2-left;
     margin-top: 25px;
     display: none;
@@ -72,7 +73,6 @@
   .level-1 {
     height: $level1-height;
     width: $level1-width;
-    background-color: #6796e5;
     left: $level-1-left;
     margin-top: 10px;
   }
@@ -80,14 +80,12 @@
   .level0 {
     height: $level0-height;
     width: $level0-width;
-    background-color: #4ec9e1;
     left: $level0-left;
   }
 
   .level1 {
     height: $level1-height;
     width: $level1-width;
-    background-color: #6796e5;
     margin-top: 10px;
     left: $level1-left;
   }
@@ -95,7 +93,6 @@
   .level2 {
     height: $level2-height;
     width: $level2-width;
-    background-color: #228291;
     margin-top: 25px;
     left: $level2-left;
     display: none;
@@ -202,7 +199,7 @@
     }
 
     .item {
-      .imageLabel {
+      .cocktailName {
         font-size: 24px;
       }
     }
@@ -223,7 +220,6 @@
     .level-2 {
       height: $level2-height;
       width: $level2-width;
-      background-color: #228291;
       left: $level-2-left;
       margin-top: 25px;
       display: none;
@@ -232,7 +228,6 @@
     .level-1 {
       height: $level1-height;
       width: $level1-width;
-      background-color: #6796e5;
       left: $level-1-left;
       margin-top: 10px;
     }
@@ -240,14 +235,12 @@
     .level0 {
       height: $level0-height;
       width: $level0-width;
-      background-color: #4ec9e1;
       left: $level0-left;
     }
 
     .level1 {
       height: $level1-height;
       width: $level1-width;
-      background-color: #6796e5;
       margin-top: 10px;
       left: $level1-left;
     }
@@ -255,7 +248,6 @@
     .level2 {
       height: $level2-height;
       width: $level2-width;
-      background-color: #228291;
       margin-top: 25px;
       left: $level2-left;
       display: none;
@@ -352,6 +344,12 @@
 
     .arrow-right {
       left: 960px;
+    }
+
+    .item {
+      .imageLabel {
+        border-width: 1px;
+      }
     }
 
     $level2-height: 150px;

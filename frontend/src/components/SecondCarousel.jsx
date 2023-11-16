@@ -1,23 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./SecondCarousel.scss";
 import PropTypes from "prop-types";
+import { useData } from "../contexts/ApiContext";
 
-function SecondCarousel({ items, active }) {
+function SecondCarousel({ items, active, onImageClick }) {
   SecondCarousel.propTypes = {
-    items: PropTypes.arrayOf(
-      PropTypes.shape({
-        src: PropTypes.string,
-        name: PropTypes.string,
-      })
-    ).isRequired,
+    items: PropTypes.arrayOf(PropTypes.number).isRequired,
     active: PropTypes.number.isRequired,
+    onImageClick: PropTypes.func.isRequired,
   };
+  const { data } = useData();
 
   const [carouselState, setCarouselState] = useState({
     items,
     active,
     direction: "",
   });
+
+  useEffect(() => {
+    setCarouselState({
+      items,
+      active,
+      direction: "",
+    });
+  }, [items, active]);
 
   const generateItems = () => {
     const itemsArray = [];
@@ -38,7 +44,13 @@ function SecondCarousel({ items, active }) {
 
       level = carouselState.active - i;
       itemsArray.push(
-        <Item key={index} id={carouselState.items[index]} level={level} />
+        <Item
+          key={index}
+          id={carouselState.items[index]}
+          level={level}
+          data={data}
+          onImageClick={onImageClick}
+        />
       );
     }
     return itemsArray;
@@ -86,12 +98,35 @@ function SecondCarousel({ items, active }) {
   );
 }
 
-function Item({ id, level }) {
+function Item({ id, level, data, onImageClick }) {
   Item.propTypes = {
     id: PropTypes.number.isRequired,
     level: PropTypes.number.isRequired,
+    data: PropTypes.arrayOf(
+      PropTypes.shape({
+        idDrink: PropTypes.number.isRequired,
+        strDrinkThumb: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+    onImageClick: PropTypes.func.isRequired,
   };
-  return <div className={`item level${level}`}>{id}</div>;
+  const drink = data?.find((item) => item.idDrink === id);
+  return (
+    <div
+      className={`item level${level}`}
+      onClick={() => onImageClick(id)}
+      onKeyDown={(event) => {
+        if (event.key === "Enter") {
+          onImageClick(id);
+        }
+      }}
+      role="button"
+      tabIndex={0}
+    >
+      <img src={drink?.strDrinkThumb} alt={`item-${id}`} />
+      <div className="cocktailName">{drink?.strDrink}</div>
+    </div>
+  );
 }
 
 export default SecondCarousel;

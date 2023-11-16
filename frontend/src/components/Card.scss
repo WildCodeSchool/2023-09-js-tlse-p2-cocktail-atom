@@ -1,7 +1,17 @@
 $background-color: #161723;
-$familyTitle: Oleo Script;
+$familyTitle: "Oleo Script";
 $sizeTitle: 32px;
 $sizeParagraph: 16px;
+
+.main {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  z-index: 950;
+  top: 6%;
+  left: 0;
+}
 
 .styleCard {
   display: flex;
@@ -11,6 +21,11 @@ $sizeParagraph: 16px;
   background-color: $background-color;
   border-radius: 24px;
   max-width: 768px;
+  position: absolute;
+  z-index: 801;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .imagePart {
@@ -27,6 +42,10 @@ $sizeParagraph: 16px;
 
 .textPart {
   margin: 16px;
+}
+
+.recipeText {
+  text-align: left;
 }
 
 .title {
@@ -101,6 +120,11 @@ $sizeParagraph: 16px;
 }
 
 @media (min-width: 768px) {
+  .main {
+    top: auto;
+    left: auto;
+  }
+
   .styleCard {
     max-width: 80%;
   }

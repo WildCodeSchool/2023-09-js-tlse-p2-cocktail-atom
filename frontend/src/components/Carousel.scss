@@ -18,7 +18,7 @@
     font-size: 20px;
     line-height: 30px;
     margin-top: 40px;
-    z-index: 800;
+    z-index: 900;
   }
 
   .arrow-right {
@@ -32,6 +32,7 @@
     font-size: 40px;
     position: absolute;
     transition: all 1s;
+    border: 1px solid;
 
     img {
       max-width: 100%;
