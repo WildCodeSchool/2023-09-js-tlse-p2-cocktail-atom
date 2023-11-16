@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useData } from "../contexts/ApiContext";
+import MiniCard from "./MiniCard";
 
 function CocktailBySearch() {
   const { name } = useParams();
   const { data } = useData();
-  const [searchArray, setSearchArray] = useState();
+  const [dataMap, setDataMap] = useState();
   if (!data) {
     return <p>Loading...</p>;
   }
@@ -18,28 +19,23 @@ function CocktailBySearch() {
         });
       });
 
-      setSearchArray(filterSearch);
+      setDataMap(filterSearch);
     }
 
     fetchDataSearch();
   }, [name]);
 
-  if (!searchArray) {
+  if (!dataMap) {
     return <p>No data {name}</p>;
   }
 
-  if (searchArray.length === 0) {
+  if (dataMap.length === 0) {
     return <p>No cocktail found for {name}</p>;
   }
 
   return (
     <div>
-      {searchArray.map((cocktail) => (
-        <div key={cocktail.idDrink}>
-          <h3>{cocktail.strDrink}</h3>
-          {/* Render other details of the cocktail as needed */}
-        </div>
-      ))}
+      <MiniCard dataMap={dataMap} />
     </div>
   );
 }

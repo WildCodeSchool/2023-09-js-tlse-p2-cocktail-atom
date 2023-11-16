@@ -1,12 +1,70 @@
 .mini-card {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+  margin: 8px;
   .card {
+    border-radius: 16px;
+    background: #0e0e0e;
     display: flex;
     color: white;
+    gap: 4px;
+    overflow: hidden;
+    h1 {
+      font-size: 2rem;
+      background: -webkit-linear-gradient(#d4ff00, #7dffe0);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    h3 {
+      font-size: 1rem;
+      font-family: JejuGothic;
+      margin-left: 8px;
+    }
     img {
       width: 15vw;
       height: 15vw;
+    }
+  }
+}
+@media screen and (max-width: 1040px) {
+  .mini-card {
+    grid-template-columns: 1fr 1fr;
+    .card {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      h3 {
+        font-size: 0.8rem;
+        margin-left: 4px;
+      }
+      img {
+        width: 20vw;
+        height: 20vw;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .mini-card {
+    grid-template-columns: 1fr;
+    .card {
+      h1 {
+        font-size: 1rem;
+      }
+
+      h3 {
+        font-size: 0.6rem;
+        margin-left: 2px;
+      }
+      img {
+        width: 30vw;
+        height: 30vw;
+      }
     }
   }
 }
