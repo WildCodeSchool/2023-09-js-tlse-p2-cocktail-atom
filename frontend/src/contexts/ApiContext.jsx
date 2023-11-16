@@ -6,11 +6,18 @@ const ApiContext = createContext();
 
 export default function ApiProvider({ children }) {
   const [data, setData] = useState();
+  const [dataApi, setDataApi] = useState();
+  const [dataNoAlcohol, setDataNoAlcohol] = useState(); // Nouvel état pour stocker dataNoAlcohol
+  const [alertAge, setAlertAge] = useState(true);
+  const drinkIncludesNonAlcoholic = (drink) => {
+    return Object.values(drink).some((e) => e && e.includes("Non alcoholic"));
+  };
   const alphabet = "abcdefghijklmnopqrstvwyz12345679";
   const letter = alphabet.split("");
   const urls = letter.map(
     (e) => `${import.meta.env.VITE_API_BASE_URL}search.php?f=${e}`
   );
+
   useEffect(() => {
     const fetchAllData = async () => {
       try {
@@ -19,7 +26,10 @@ export default function ApiProvider({ children }) {
           .map((response) => response.data.drinks)
           .flat();
 
-        setData(allData);
+        setDataApi(allData);
+        setDataNoAlcohol(
+          allData.filter((drink) => drinkIncludesNonAlcoholic(drink))
+        );
       } catch (error) {
         console.error(error);
       }
@@ -28,13 +38,25 @@ export default function ApiProvider({ children }) {
     fetchAllData();
   }, []);
 
+  useEffect(() => {
+    if (alertAge) {
+      setData(dataApi);
+    } else {
+      setData(dataNoAlcohol);
+    }
+  }, [alertAge, dataApi, dataNoAlcohol]);
+
   const value = useMemo(
     () => ({
       data,
       setData,
+      alertAge,
+      setAlertAge,
+      dataNoAlcohol,
     }),
-    [data]
+    [data, dataNoAlcohol, alertAge]
   );
+
   return <ApiContext.Provider value={value}>{children}</ApiContext.Provider>;
 }
 

@@ -8,7 +8,7 @@ function Footer() {
     <footer>
       <div className="main-line">
         <p>Copyright © 2023</p>
-        <h3>Alcohol to be consumed in moderation</h3>
+        <h3>Alcohol is to be consumed in moderation</h3>
         <div className="social-network">
           <a href="https://www.instagram.com/cocktail.atom/">
             <img src={instagramLogo} alt="instagram logo" />
@@ -22,7 +22,7 @@ function Footer() {
         </div>
       </div>
       <hr className="line" />
-      <h3>Alcohol to be consumed in moderation</h3>
+      <h3>Alcohol is to be consumed in moderation</h3>
     </footer>
   );
 }
