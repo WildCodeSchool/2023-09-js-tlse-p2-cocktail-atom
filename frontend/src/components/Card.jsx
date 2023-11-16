@@ -32,7 +32,7 @@ function Card({ selectedDrinkId, onClose }) {
 
   return (
     <div
-      className="main"
+      className="main-card"
       onClick={onClose}
       onKeyDown={onClose}
       tabIndex={0}
@@ -93,8 +93,8 @@ function Card({ selectedDrinkId, onClose }) {
             </div>
             <div className="preparation">
               <h2>Preparation</h2>
+              <p>{selectedCocktail.strInstructions}</p>
             </div>
-            <p>{selectedCocktail.strInstructions}</p>
           </div>
 
           {selectedCocktail.strVideo !== null && (
