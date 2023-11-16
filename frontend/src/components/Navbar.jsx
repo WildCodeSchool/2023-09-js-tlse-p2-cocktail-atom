@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import logoImage from "../assets/icons/logo.svg";
 import filterImage from "../assets/icons/filter.svg";
 import searchImage from "../assets/icons/search.svg";
@@ -7,15 +7,12 @@ import navBurger from "../assets/icons/burger.svg";
 import quit from "../assets/icons/quit.svg";
 import "./Navbar.scss";
 import OverlayBurger from "./OverlayBurger";
-import Data from "./Data";
 import AlertAge from "./AlertAge";
 
 function Navbar() {
   const [navBurgerOpen, setNavBurgerOpen] = useState(false);
   const [navFilterOpen, setNavFilterOpen] = useState(false);
-  const [alertAge, setAlertAge] = useState(true);
   const [searching, setSearching] = useState("");
-  const [value, setValue] = useState(true);
 
   const navigate = useNavigate();
 
@@ -46,14 +43,15 @@ function Navbar() {
           </div>
         </div>
         <div className="filter-search">
-          <button
+          <Link
+            to={`${navFilterOpen ? "/" : "/filter"}`}
             type="button"
-            className="filter"
+            className="nav-filter"
             onClick={() => setNavFilterOpen(!navFilterOpen)}
           >
             <img src={filterImage} alt="filter icon" />
             <p>Filter</p>
-          </button>
+          </Link>
           <div className="search" onSubmit={(e) => e.preventDefault()}>
             <input
               placeholder="search"
@@ -68,7 +66,13 @@ function Navbar() {
               className="search-mobile"
               type="button"
               onClick={() => {
-                setValue(false);
+                if (navFilterOpen) {
+                  navigate(`/`);
+                  setNavFilterOpen(!navFilterOpen);
+                } else {
+                  navigate(`/filter`);
+                  setNavFilterOpen(!navFilterOpen);
+                }
               }}
             >
               <img src={searchImage} alt="search icon" />
@@ -91,10 +95,7 @@ function Navbar() {
         isOpen={navBurgerOpen}
         onClose={() => setNavBurgerOpen(!navBurgerOpen)}
       />
-      <AlertAge setAlertAge={setAlertAge} />
-      {navFilterOpen && (
-        <Data alertAge={alertAge} value={value} setValue={setValue} />
-      )}
+      <AlertAge />
     </>
   );
 }

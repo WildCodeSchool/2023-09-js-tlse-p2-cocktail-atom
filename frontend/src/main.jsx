@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import CocktailBySearch from "./components/CocktailBySearch";
 import AboutUs from "./components/AboutUs";
+import Data from "./components/Data";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,7 @@ const router = createBrowserRouter([
       { path: "/favorite", element: <>Insert element for Favorite</> },
       { path: "/random", element: <>Insert element for Random Drink</> },
       { path: "/about", element: <AboutUs /> },
-      { path: "/filter", element: <>Insert element for filter</> },
+      { path: "/filter", element: <Data /> },
     ],
   },
 ]);

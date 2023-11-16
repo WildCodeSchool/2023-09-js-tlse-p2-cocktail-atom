@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <ApiProvider>
-      <div className="background">
+      <div className="base-background">
         <nav>
           <Navbar />
         </nav>

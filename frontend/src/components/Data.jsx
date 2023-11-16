@@ -1,17 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./Data.scss";
-import PropTypes from "prop-types";
-import FilterCardButton from "./ FilterCardButton";
+import FilterCardButton from "./FilterCardButton";
 import FilterMiniCard from "./FilterMiniCard";
+import { useData } from "../contexts/ApiContext";
 
-function Data({ alertAge }) {
-  const [alcohol, setAlcohol] = useState(true);
+function Data() {
   const [targetId, setTargetId] = useState(null);
-  useEffect(() => {
-    if (alertAge === false) {
-      setAlcohol(false);
-    }
-  }, []);
+  const { setData, dataNoAlcohol, dataApi, alertAge } = useData();
+
   const alcoholIngredient = [
     { strIngredient1: "Light rum", alcohol: true },
     { strIngredient1: "Applejack", alcohol: true },
@@ -129,14 +125,14 @@ function Data({ alertAge }) {
     <div className="data">
       <div className="alcoholic">
         {alertAge === false ? (
-          <h1 className="cardButton">AlcoholicH1</h1>
+          <h1 className="cardButton no-alcohol">AlcoholicH1</h1>
         ) : (
           <button
             type="button"
             className="cardButton"
             id="alcoholic"
             onClick={() => {
-              setAlcohol(true);
+              setData(dataApi);
             }}
           >
             Alcoholic
@@ -147,7 +143,7 @@ function Data({ alertAge }) {
           className="cardButton"
           id="non-lcoholic"
           onClick={() => {
-            setAlcohol(false);
+            setData(dataNoAlcohol);
           }}
         >
           Non Alcoholic
@@ -166,11 +162,8 @@ function Data({ alertAge }) {
         />
       </div>
       <FilterMiniCard targetId={targetId} />
-      <h1>{alcohol}</h1>
     </div>
   );
 }
-Data.propTypes = {
-  alertAge: PropTypes.bool.isRequired,
-};
+
 export default Data;

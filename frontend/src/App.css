@@ -140,6 +140,16 @@ table {
   src: url("./assets/fonts/JejuGothic-Regular.ttf");
 }
 
-.background {
+.App {
+  min-height: calc(100vh - 115px);
+}
+
+.base-background {
   background: linear-gradient(#11252e 0%, #020e01 100%);
+}
+
+@media screen and (max-width: 480px) {
+  .App {
+    min-height: calc(100vh - 116px);
+  }
 }

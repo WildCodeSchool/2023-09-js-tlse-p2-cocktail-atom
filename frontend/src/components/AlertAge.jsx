@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "./AlertAge.scss";
-import PropTypes from "prop-types";
+import { useData } from "../contexts/ApiContext";
 
-function AlertAge({ setAlertAge }) {
+function AlertAge() {
   const [showAlert, setShowAlert] = useState(true);
+  const { setAlertAge } = useData();
 
   const handleButtonClick = (choice) => {
     if (choice === "No") {
@@ -34,8 +35,5 @@ function AlertAge({ setAlertAge }) {
     </div>
   );
 }
-AlertAge.propTypes = {
-  setAlertAge: PropTypes.func.isRequired,
-};
 
 export default AlertAge;

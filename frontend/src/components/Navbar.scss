@@ -55,7 +55,8 @@
     align-items: center;
     gap: 8px;
 
-    .filter {
+    .nav-filter {
+      text-decoration: none;
       display: flex;
       align-items: center;
       background-color: transparent;
@@ -77,7 +78,7 @@
       }
     }
 
-    .filter:hover {
+    .nav-filter:hover {
       background-color: white;
 
       img {
@@ -90,7 +91,7 @@
       }
     }
 
-    .filter:active {
+    .nav-filter:active {
       background-color: #161723;
 
       img {
@@ -170,7 +171,7 @@
 @media screen and (max-width: 480px) {
   .navbar {
     .filter-search {
-      .filter {
+      .nav-filter {
         display: none;
       }
 
