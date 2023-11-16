@@ -51,8 +51,8 @@ function AboutUs() {
           <strong>Tristan Delmas:</strong> With a focus on achieving optimal
           code performance and delivering a high-quality user experience,
           Tristan aspires to ensure that Cocktail-Atom not only functions
-          efficiently but also provides a delightful user journey. Seekings
-          continuous improvement, always exploring ways to enhance the user
+          efficiently but also provides a delightful user journey. Seeking
+          continuous improvement, he's always exploring ways to enhance the user
           interface and overall performance of Cocktail-Atom.
         </p>
 
