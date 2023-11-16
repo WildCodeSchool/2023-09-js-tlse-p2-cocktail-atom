@@ -1,12 +1,17 @@
 import { useState } from "react";
 import "./Data.scss";
+import { useNavigate } from "react-router-dom";
 import FilterCardButton from "./FilterCardButton";
 import FilterMiniCard from "./FilterMiniCard";
 import { useData } from "../contexts/ApiContext";
+import searchImage from "../assets/icons/search.svg";
 
 function Data() {
   const [targetId, setTargetId] = useState(null);
   const { setData, dataNoAlcohol, dataApi, alertAge } = useData();
+  const [searching, setSearching] = useState("");
+
+  const navigate = useNavigate();
 
   const alcoholIngredient = [
     { strIngredient1: "Light rum", alcohol: true },
@@ -121,11 +126,41 @@ function Data() {
     }
   }
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && searching.trim() !== "") {
+      navigate(`/search/${searching}`);
+    }
+  };
+
   return (
     <div className="data">
+      <div className="search-filter" onSubmit={(e) => e.preventDefault()}>
+        <input
+          placeholder="Search"
+          type="text"
+          value={searching}
+          onChange={(e) => {
+            setSearching(e.target.value);
+          }}
+          onKeyDown={handleKeyDown}
+        />
+        <button
+          className="search-button-filter"
+          type="button"
+          onClick={() => {
+            if (searching.trim() !== "") {
+              navigate(`/search/${searching}`);
+            }
+          }}
+        >
+          <img src={searchImage} alt="search icon" />
+        </button>
+      </div>
       <div className="alcoholic">
         {alertAge === false ? (
-          <h1 className="cardButton no-alcohol">AlcoholicH1</h1>
+          <button type="button" className="no-alcohol">
+            Alcoholic
+          </button>
         ) : (
           <button
             type="button"
@@ -152,12 +187,12 @@ function Data() {
       <div className="cart-button">
         <FilterCardButton
           listCategory={listAlcohol}
-          category="alcohol"
+          category="Alcohol"
           setTargetId={setTargetId}
         />
         <FilterCardButton
           listCategory={listIngredient}
-          category="ingredient"
+          category="Ingredient"
           setTargetId={setTargetId}
         />
       </div>

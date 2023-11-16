@@ -13,3 +13,39 @@
     }
   }
 }
+
+.cat-button {
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  z-index: 2;
+  position: relative;
+  margin-block: 16px;
+  color: white;
+  width: clamp(100px, 40%, 2000px);
+  height: 25px;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: #161723;
+    border-radius: inherit;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -0.1rem;
+    z-index: -1;
+    background: linear-gradient(#d4ff00, #7dffe0);
+    border-radius: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .filter {
+    .list-container {
+      grid-template-columns: 1fr;
+    }
+  }
+}
