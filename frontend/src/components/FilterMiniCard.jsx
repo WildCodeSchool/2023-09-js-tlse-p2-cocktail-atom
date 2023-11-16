@@ -22,7 +22,7 @@ function FilterMiniCard({ targetId }) {
         );
       }
     }
-  }, [targetId]);
+  }, [targetId, data]);
 
   useEffect(() => {
     if (filterValue.length > 0) {
@@ -35,7 +35,7 @@ function FilterMiniCard({ targetId }) {
         setDataMap(obj);
       }
     }
-  }, [filterValue]);
+  }, [filterValue, data]);
 
   return (
     <div>
