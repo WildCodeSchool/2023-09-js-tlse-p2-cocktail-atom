@@ -3,15 +3,15 @@ import PropTypes from "prop-types";
 import { useData } from "../contexts/ApiContext";
 import MiniCard from "./MiniCard";
 
-function FilperMiniCard({ targetId }) {
+function FilterMiniCard({ targetId }) {
   const { data } = useData();
   const [dataMap, setDataMap] = useState(data);
-  const [filterValeue, setFilterValue] = useState([]);
+  const [filterValue, setFilterValue] = useState([]);
   useEffect(() => {
     if (targetId) {
       if (targetId[1]) {
-        if (filterValeue) {
-          setFilterValue([...filterValeue, targetId[0]]);
+        if (filterValue) {
+          setFilterValue([...filterValue, targetId[0]]);
         } else {
           setFilterValue(targetId[0]);
         }
@@ -25,17 +25,17 @@ function FilperMiniCard({ targetId }) {
   }, [targetId]);
 
   useEffect(() => {
-    if (filterValeue.length > 0) {
-      for (let i = 0; i < filterValeue.length; i += 1) {
-        const obg = dataMap.filter((el) => {
+    if (filterValue.length > 0) {
+      for (let i = 0; i < filterValue.length; i += 1) {
+        const obj = dataMap.filter((el) => {
           return Object.values(el).find((e) => {
-            return e && e.includes(filterValeue[i]);
+            return e && e.includes(filterValue[i]);
           });
         });
-        setDataMap(obg);
+        setDataMap(obj);
       }
     }
-  }, [filterValeue]);
+  }, [filterValue]);
 
   return (
     <div>
@@ -43,7 +43,7 @@ function FilperMiniCard({ targetId }) {
     </div>
   );
 }
-FilperMiniCard.propTypes = {
+FilterMiniCard.propTypes = {
   targetId: PropTypes.arrayOf.isRequired,
 };
-export default FilperMiniCard;
+export default FilterMiniCard;

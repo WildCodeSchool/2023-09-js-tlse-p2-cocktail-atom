@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Data.scss";
 import PropTypes from "prop-types";
 import FilterCardButton from "./ FilterCardButton";
-import FilperMiniCard from "./FilperMiniCard";
+import FilterMiniCard from "./FilterMiniCard";
 
 function Data({ alertAge }) {
   const [alcohol, setAlcohol] = useState(true);
@@ -165,7 +165,7 @@ function Data({ alertAge }) {
           setTargetId={setTargetId}
         />
       </div>
-      <FilperMiniCard targetId={targetId} />
+      <FilterMiniCard targetId={targetId} />
       <h1>{alcohol}</h1>
     </div>
   );
