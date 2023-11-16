@@ -1,13 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import "./MiniCard.scss";
 import PropTypes from "prop-types";
+// import Card from "./Card";
 
 function MiniCard({ dataMap }) {
+  const [cardClick, setCardClick] = useState(false);
+  const [idDrink, setIdDrink] = useState([]);
+  const hendelclick = (id) => {
+    setCardClick(true);
+    setIdDrink(id);
+  };
+
   return (
     <div className="mini-card">
-      {dataMap &&
+      <h1>{idDrink}</h1>
+      <h1>{cardClick}</h1>
+      {dataMap.length < 150 &&
         dataMap.map((elem) => (
-          <div className="card" key={elem.idDrink}>
+          <button
+            type="button"
+            className="card"
+            key={elem.idDrink}
+            onClick={() => hendelclick(elem.idDrink)}
+          >
             <img src={elem.strDrinkThumb} alt={elem.strDrink} />
             <div className="ingridient">
               <h1>{elem.strDrink}</h1>
@@ -25,8 +40,9 @@ function MiniCard({ dataMap }) {
               {elem.strIngredient12 && <h3>{elem.strIngredient12}</h3>}
               {elem.strIngredient13 && <h3>{elem.strIngredient13}</h3>}
             </div>
-          </div>
+          </button>
         ))}
+      {/* {cardClick && <Card idDrink={idDrink} />} */}
     </div>
   );
 }
