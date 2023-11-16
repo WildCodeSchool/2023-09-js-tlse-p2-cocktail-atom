@@ -6,7 +6,6 @@ function CocktailBySearch() {
   const { name } = useParams();
   const { data } = useData();
   const [searchArray, setSearchArray] = useState();
-
   if (!data) {
     return <p>Loading...</p>;
   }

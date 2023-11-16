@@ -8,11 +8,14 @@ import quit from "../assets/icons/quit.svg";
 import "./Navbar.scss";
 import OverlayBurger from "./OverlayBurger";
 import Data from "./Data";
+import AlertAge from "./AlertAge";
 
 function Navbar() {
   const [navBurgerOpen, setNavBurgerOpen] = useState(false);
   const [navFilterOpen, setNavFilterOpen] = useState(false);
+  const [alertAge, setAlertAge] = useState(true);
   const [searching, setSearching] = useState("");
+  const [value, setValue] = useState(true);
 
   const navigate = useNavigate();
 
@@ -61,7 +64,13 @@ function Navbar() {
               }}
               onKeyDown={handleKeyDown}
             />
-            <button className="search-mobile" type="button">
+            <button
+              className="search-mobile"
+              type="button"
+              onClick={() => {
+                setValue(false);
+              }}
+            >
               <img src={searchImage} alt="search icon" />
             </button>
             <button
@@ -82,7 +91,10 @@ function Navbar() {
         isOpen={navBurgerOpen}
         onClose={() => setNavBurgerOpen(!navBurgerOpen)}
       />
-      {navFilterOpen && <Data />}
+      <AlertAge setAlertAge={setAlertAge} />
+      {navFilterOpen && (
+        <Data alertAge={alertAge} value={value} setValue={setValue} />
+      )}
     </>
   );
 }

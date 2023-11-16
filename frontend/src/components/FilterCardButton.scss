@@ -1,0 +1,15 @@
+.filter {
+  width: 40vw;
+  .list-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100px;
+    overflow-y: auto;
+    .label-category {
+      color: white;
+      .label-category {
+        width: 30%;
+      }
+    }
+  }
+}
