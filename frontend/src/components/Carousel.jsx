@@ -75,7 +75,7 @@ function Carousel({ items, active, onImageClick }) {
           tabIndex={0}
         >
           <img src={images[index].src} alt={images[index].name} />
-          <div className="imageLabel">{images[index].name}</div>
+          <div className="image-label">{images[index].name}</div>
         </div>
       );
     }
@@ -110,7 +110,7 @@ function Carousel({ items, active, onImageClick }) {
       >
         <i className="fi-arrow-left" />
       </div>
-      <div className="transitionGroup">{generateItems()}</div>
+      <div className="transition-group">{generateItems()}</div>
       <div
         className="arrow arrow-right"
         onClick={moveRight}

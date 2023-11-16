@@ -1,19 +1,19 @@
 $background-color: #161723;
-$familyTitle: "Oleo Script";
-$sizeTitle: 32px;
-$sizeParagraph: 16px;
+$family-title: "Oleo Script";
+$size-title: 32px;
+$size-paragraph: 16px;
 
 .main {
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.9);
   position: absolute;
-  z-index: 950;
+  z-index: 8;
   top: 6%;
   left: 0;
 }
 
-.styleCard {
+.style-card {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -22,17 +22,17 @@ $sizeParagraph: 16px;
   border-radius: 24px;
   max-width: 768px;
   position: absolute;
-  z-index: 801;
+  z-index: 7;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.imagePart {
+.image-part {
   text-align: center;
   margin: 16px;
 
-  .imageCocktail {
+  .image-cocktail {
     width: 100%;
     height: 100%;
     border-top-left-radius: 24px;
@@ -40,11 +40,11 @@ $sizeParagraph: 16px;
   }
 }
 
-.textPart {
+.text-part {
   margin: 16px;
 }
 
-.recipeText {
+.recipe-text {
   text-align: left;
 }
 
@@ -70,8 +70,8 @@ $sizeParagraph: 16px;
   }
 }
 
-.styleCard p {
-  font-size: $sizeParagraph;
+.style-card p {
+  font-size: $size-paragraph;
   margin: 3px;
   color: white;
 }
@@ -84,20 +84,20 @@ $sizeParagraph: 16px;
   margin-bottom: 8px;
 
   h2 {
-    font-size: $sizeTitle;
+    font-size: $size-title;
     margin-top: 8px;
     margin-bottom: 8px;
   }
 }
 
 .preparation h2 {
-  font-size: $sizeTitle;
+  font-size: $size-title;
   color: white;
   margin-top: 8px;
   margin-bottom: 8px;
 }
 
-.buttonRandom {
+.button-random {
   text-align: center;
   padding-top: 20px;
 
@@ -125,29 +125,29 @@ $sizeParagraph: 16px;
     left: auto;
   }
 
-  .styleCard {
+  .style-card {
     max-width: 80%;
   }
 
-  .textPart {
+  .text-part {
     display: flex;
     flex-direction: row;
     width: 100%;
   }
 
-  .recipeText {
+  .recipe-text {
     margin-right: 16px;
   }
 
-  .recipeVideo {
+  .recipe-video {
     width: 50%;
   }
 
-  .imagePart {
+  .image-part {
     width: 100%;
   }
 
-  .imagePart .imageCocktail {
+  .image-part .image-cocktail {
     width: 50%;
     border-radius: 24px;
   }

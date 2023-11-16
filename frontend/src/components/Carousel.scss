@@ -18,7 +18,7 @@
     font-size: 20px;
     line-height: 30px;
     margin-top: 40px;
-    z-index: 900;
+    z-index: 6;
   }
 
   .arrow-right {
@@ -41,7 +41,7 @@
       margin-bottom: 5px;
     }
 
-    .imageLabel {
+    .image-label {
       font-size: 20px;
       text-align: center;
       height: 30px;
@@ -205,7 +205,7 @@
     }
 
     .item {
-      .imageLabel {
+      .image-label {
         font-size: 24px;
       }
     }
@@ -358,7 +358,7 @@
     }
 
     .item {
-      .imageLabel {
+      .image-label {
         border-width: 1px;
       }
     }

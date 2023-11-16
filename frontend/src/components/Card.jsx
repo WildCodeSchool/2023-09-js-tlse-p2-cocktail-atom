@@ -11,7 +11,7 @@ function Card({ selectedDrinkId, onClose }) {
     selectedDrinkId: PropTypes.string.isRequired,
     onClose: PropTypes.func.isRequired,
   };
-  const [favoriteImage, setfavoriteImage] = useState(true);
+  const [favoriteImage, setFavoriteImage] = useState(true);
   const { data } = useData();
   const [selectedCocktail, setSelectedCocktail] = useState(null);
 
@@ -23,7 +23,7 @@ function Card({ selectedDrinkId, onClose }) {
   }, [data, selectedDrinkId]);
 
   const toggleImage = () => {
-    setfavoriteImage(!favoriteImage);
+    setFavoriteImage(!favoriteImage);
   };
 
   if (!selectedCocktail) {
@@ -39,23 +39,23 @@ function Card({ selectedDrinkId, onClose }) {
       role="button"
     >
       <div
-        className="styleCard"
+        className="style-card"
         key={selectedCocktail.idDrink}
         onClick={(e) => e.stopPropagation()}
         onKeyDown={(e) => e.stopPropagation()}
         role="button"
         tabIndex={0}
       >
-        <div className="imagePart">
+        <div className="image-part">
           <img
             src={selectedCocktail.strDrinkThumb}
             alt="imageCock"
-            className="imageCocktail"
+            className="image-cocktail"
           />
         </div>
-        <div className="textPart">
+        <div className="text-part">
           <div
-            className="recipeText"
+            className="recipe-text"
             style={{
               width: selectedCocktail.strVideo === null ? "100%" : "50%",
             }}
@@ -98,7 +98,7 @@ function Card({ selectedDrinkId, onClose }) {
           </div>
 
           {selectedCocktail.strVideo !== null && (
-            <div className="recipeVideo">
+            <div className="recipe-video">
               <div className="video-wrapper">
                 <ReactPlayer
                   url={selectedCocktail.strVideo}
