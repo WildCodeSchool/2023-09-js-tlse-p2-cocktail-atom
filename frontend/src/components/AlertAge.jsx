@@ -1,18 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./AlertAge.scss";
+import PropTypes from "prop-types";
 
-function AlertAge() {
+function AlertAge({ setAlertAge }) {
   const [showAlert, setShowAlert] = useState(true);
 
-  useEffect(() => {
-    setShowAlert(true);
-  }, []);
-
   const handleButtonClick = (choice) => {
-    if (choice === "Yes") {
-      // Faire apparaitre le site avec tout les cocktails
-    } else {
-      // Faire apparaitre le site avec tout les cocktails sans alcools
+    if (choice === "No") {
+      setAlertAge(false);
     }
     setShowAlert(false);
   };
@@ -28,10 +23,10 @@ function AlertAge() {
           acknowledge and declare that you are 18 years of age or older.
         </p>
         <div className="buttonAlert">
-          <button type="button" onClick={() => handleButtonClick("Yes")}>
+          <button type="button" onClick={() => handleButtonClick("No")}>
             <span>No</span>
           </button>
-          <button type="button" onClick={() => handleButtonClick("No")}>
+          <button type="button" onClick={() => handleButtonClick("yes")}>
             <span>Yes</span>
           </button>
         </div>
@@ -39,5 +34,8 @@ function AlertAge() {
     </div>
   );
 }
+AlertAge.propTypes = {
+  setAlertAge: PropTypes.func.isRequired,
+};
 
 export default AlertAge;
