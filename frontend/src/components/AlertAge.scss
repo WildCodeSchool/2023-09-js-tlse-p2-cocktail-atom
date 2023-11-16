@@ -1,7 +1,7 @@
 $background-color: #161723;
-$sizeTitle: 32px;
-$sizeParagraph: 16px;
-$colorBorder: linear-gradient(180deg, #d4ff00 0%, #7dffe0 100%);
+$size-title: 32px;
+$size-paragraph: 16px;
+$color-border: linear-gradient(180deg, #d4ff00 0%, #7dffe0 100%);
 
 .background {
   position: fixed;
@@ -13,9 +13,9 @@ $colorBorder: linear-gradient(180deg, #d4ff00 0%, #7dffe0 100%);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999;
+  z-index: 10;
 
-  .bodyAlert {
+  .body-alert {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -28,24 +28,24 @@ $colorBorder: linear-gradient(180deg, #d4ff00 0%, #7dffe0 100%);
     padding: 5px 22px;
     border-radius: 10px;
 
-    .titleAlert {
+    .title-alert {
       display: flex;
-      font-size: $sizeTitle;
+      font-size: $size-title;
       text-align: center;
     }
 
-    .lineAlert {
+    .line-alert {
       width: 80%;
       height: 1px;
       background-color: white;
     }
 
-    .textAlert {
-      font-size: $sizeParagraph;
+    .text-alert {
+      font-size: $size-paragraph;
       text-align: center;
     }
 
-    .buttonAlert {
+    .button-alert {
       display: flex;
       padding: 8px 0px;
       align-items: flex-start;
@@ -74,7 +74,7 @@ $colorBorder: linear-gradient(180deg, #d4ff00 0%, #7dffe0 100%);
           position: absolute;
           inset: -0.1rem;
           z-index: -1;
-          background: $colorBorder;
+          background: $color-border;
           border-radius: 10px;
         }
 
@@ -82,7 +82,7 @@ $colorBorder: linear-gradient(180deg, #d4ff00 0%, #7dffe0 100%);
           position: relative;
           z-index: 2;
           color: transparent;
-          background: $colorBorder;
+          background: $color-border;
           -webkit-background-clip: text;
           background-clip: text;
         }
@@ -97,7 +97,7 @@ $colorBorder: linear-gradient(180deg, #d4ff00 0%, #7dffe0 100%);
 
 @media (min-width: 480px) {
   .background {
-    .bodyAlert {
+    .body-alert {
       width: 304px;
       height: 240px;
       padding: 8px 147px;

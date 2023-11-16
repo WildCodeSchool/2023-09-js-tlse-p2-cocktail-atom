@@ -1,5 +1,6 @@
 import "./OverlayBurger.scss";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 function OverlayBurger({ isOpen, onClose }) {
   return (
@@ -7,20 +8,32 @@ function OverlayBurger({ isOpen, onClose }) {
       {isOpen && (
         <div className="overlay" onClick={onClose} aria-hidden="true">
           <ul className="overlay_container">
-            <button className="home-button" type="button">
+            <Link to="/" className="home-button burger-button" type="button">
               Home
-            </button>
-            <button className="favorite-button" type="button">
+            </Link>
+            <Link
+              to="/favorite"
+              className="favorite-button burger-button"
+              type="button"
+            >
               Favorite
-            </button>
-            <button className="random-button" type="button">
+            </Link>
+            <Link
+              to="/random"
+              className="random-button burger-button"
+              type="button"
+            >
               Random Drink
-            </button>
-            <button className="contact-button" type="button">
-              Contact us
-            </button>
+            </Link>
+            <Link
+              to="/about"
+              className="about-button burger-button"
+              type="button"
+            >
+              About us
+            </Link>
           </ul>
-          <footer>Alcohol to be consumed in moderation</footer>
+          <footer>Alcohol is to be consumed in moderation</footer>
         </div>
       )}
     </div>
