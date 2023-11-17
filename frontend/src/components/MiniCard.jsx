@@ -42,7 +42,7 @@ function MiniCard({ dataMap }) {
             onClick={() => handleClickButton(elem.idDrink)}
           >
             <img src={elem.strDrinkThumb} alt={elem.strDrink} />
-            <div className="ingridient">
+            <div className="ingredient">
               <h1>{elem.strDrink}</h1>
               <ul>
                 {Array.from(

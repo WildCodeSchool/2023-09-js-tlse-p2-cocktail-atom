@@ -4,7 +4,7 @@ import "./FilterCardButton.scss";
 import { useData } from "../contexts/ApiContext";
 
 function FilterCardButton({ listCategory, category, setTargetId }) {
-  const { valueMobil, setValueMobil } = useData();
+  const { valueMobile, setValueMobile } = useData();
   const handleChange = (e) => {
     const result = [e.target.name];
     const condition = e.target.checked;
@@ -18,12 +18,12 @@ function FilterCardButton({ listCategory, category, setTargetId }) {
         className="cat-button"
         type="button"
         onClick={() => {
-          setValueMobil(!valueMobil);
+          setValueMobile(!valueMobile);
         }}
       >
         {category}
       </button>
-      {valueMobil && (
+      {valueMobile && (
         <div className="list-container">
           {listCategory.map((listElement) => {
             return (
