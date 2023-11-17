@@ -1,0 +1,185 @@
+$background-color: #161723;
+$family-title: "Oleo Script";
+$size-title: 32px;
+$size-paragraph: 16px;
+
+.main-card {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  z-index: 8;
+  top: 6%;
+  left: 0;
+
+  .style-card {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    background-color: $background-color;
+    border-radius: 24px;
+    max-width: 768px;
+    position: absolute;
+    z-index: 7;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: #161723;
+      border-radius: inherit;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -0.1rem;
+      z-index: -1;
+      background: linear-gradient(#d4ff00, #7dffe0);
+      border-radius: 10px;
+    }
+  }
+
+  .image-part {
+    text-align: center;
+    margin: 16px;
+
+    .image-cocktail {
+      width: 100%;
+      height: 100%;
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+    }
+  }
+
+  .text-part {
+    margin: 16px;
+  }
+
+  .recipe-text {
+    text-align: left;
+  }
+
+  .title {
+    margin: 0px;
+    display: flex;
+    justify-content: space-between;
+    background: linear-gradient(#d4ff00, #7dffe0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    h2 {
+      font-size: 32px;
+      color: white;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+
+    button {
+      background-color: transparent;
+      border: none;
+    }
+
+    img {
+      width: 40px;
+    }
+  }
+
+  .style-card p {
+    font-size: $size-paragraph;
+    margin: 3px;
+    color: white;
+  }
+
+  .ingredients {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    p {
+      font-family: "JejuGothic";
+    }
+
+    h2 {
+      font-size: $size-title;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+  }
+
+  .preparation {
+    h2 {
+      font-size: $size-title;
+      color: white;
+      margin-top: 8px;
+      margin-bottom: 8px;
+    }
+    p {
+      font-family: "JejuGothic";
+      word-spacing: 2px;
+      line-height: 20px;
+    }
+  }
+
+  .button-random {
+    text-align: center;
+    padding-top: 20px;
+
+    button {
+      background-color: rgb(148, 231, 15);
+      font-size: 30px;
+    }
+  }
+
+  .video-wrapper {
+    position: relative;
+    padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+    margin-top: 30px;
+
+    .video {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .main-card {
+    top: auto;
+    left: auto;
+
+    .style-card {
+      max-width: 80%;
+    }
+
+    .text-part {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+    }
+
+    .recipe-text {
+      margin-right: 16px;
+    }
+
+    .recipe-video {
+      width: 50%;
+    }
+
+    .image-part {
+      width: 100%;
+    }
+
+    .image-part .image-cocktail {
+      width: 50%;
+      border-radius: 24px;
+    }
+  }
+}

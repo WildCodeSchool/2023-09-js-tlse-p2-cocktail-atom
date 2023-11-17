@@ -1,0 +1,106 @@
+$background-color: #161723;
+$size-title: 32px;
+$size-paragraph: 16px;
+$color-border: linear-gradient(180deg, #d4ff00 0%, #7dffe0 100%);
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+
+  .body-alert {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $background-color;
+    width: 304px;
+    height: 196px;
+    color: white;
+    padding: 5px 22px;
+    border-radius: 10px;
+
+    .title-alert {
+      display: flex;
+      font-size: $size-title;
+      text-align: center;
+    }
+
+    .line-alert {
+      width: 80%;
+      height: 1px;
+      background-color: white;
+    }
+
+    .text-alert {
+      font-size: $size-paragraph;
+      text-align: center;
+    }
+
+    .button-alert {
+      display: flex;
+      padding: 8px 0px;
+      align-items: flex-start;
+      gap: 33px;
+
+      button {
+        z-index: 2;
+        position: relative;
+        width: 80px;
+        height: 20px;
+        border-radius: 10px;
+        border-width: 1px;
+        cursor: pointer;
+
+        &::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          z-index: -1;
+          background: #161723;
+          border-radius: inherit;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          inset: -0.1rem;
+          z-index: -1;
+          background: $color-border;
+          border-radius: 10px;
+        }
+
+        span {
+          position: relative;
+          z-index: 2;
+          color: transparent;
+          background: $color-border;
+          -webkit-background-clip: text;
+          background-clip: text;
+        }
+      }
+    }
+  }
+}
+
+.hide {
+  display: none;
+}
+
+@media (min-width: 480px) {
+  .background {
+    .body-alert {
+      width: 304px;
+      height: 240px;
+      padding: 8px 147px;
+    }
+  }
+}
