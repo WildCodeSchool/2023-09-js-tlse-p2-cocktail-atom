@@ -37,7 +37,7 @@ function MiniCard({ dataMap }) {
         {dataMapClice.map((elem) => (
           <button
             type="button"
-            className="card"
+            className="card-min"
             key={elem.idDrink}
             onClick={() => hendelclick(elem.idDrink)}
           >

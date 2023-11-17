@@ -1,32 +1,35 @@
 .mini-card {
-  margin-block: 16px 8px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 16px;
   margin: 8px;
-  .card {
+
+  .card-min {
+    border: none;
     border-radius: 16px;
     background: #0e0e0e;
     display: flex;
     color: white;
     gap: 4px;
     overflow: hidden;
-    h1 {
-      font-size: 2rem;
-      background: -webkit-linear-gradient(#d4ff00, #7dffe0);
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    h3 {
-      font-size: 1rem;
-      font-family: JejuGothic;
-      margin-left: 8px;
-    }
     img {
       width: 10vw;
       height: 10vw;
+    }
+    .ingridient {
+      h1 {
+        font-size: 2rem;
+        background: -webkit-linear-gradient(#d4ff00, #7dffe0);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      li {
+        font-size: 1rem;
+        font-family: JejuGothic;
+        margin-left: 8px;
+      }
     }
   }
 }
