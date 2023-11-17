@@ -123,7 +123,10 @@ function Item({ id, level, data, onImageClick }) {
       role="button"
       tabIndex={0}
     >
-      <img src={drink?.strDrinkThumb} alt={`item-${id}`} />
+      <img
+        src={drink?.strDrinkThumb}
+        alt={id === undefined ? "" : `item-${id}`}
+      />
       <div className="cocktailName">{drink?.strDrink}</div>
     </div>
   );

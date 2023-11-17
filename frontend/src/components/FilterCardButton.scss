@@ -7,11 +7,20 @@
     grid-template-columns: 1fr 1fr;
     height: 100px;
     overflow-y: auto;
+    gap: 1px;
 
     .label-category {
+      display: flex;
+      align-items: center;
+      line-height: normal;
+
       font-family: JejuGothic;
       color: white;
       font-size: 0.8rem;
+    }
+    .input-category {
+      display: flex;
+      align-items: start;
     }
   }
 }
