@@ -52,12 +52,7 @@ function RandomCocktail() {
           />
         </div>
         <div className="text-part">
-          <div
-            className="recipe-text"
-            style={{
-              width: selectedCocktail.strVideo === null ? "100%" : "100%",
-            }}
-          >
+          <div className="recipe-text">
             <div className="title">
               <h2>{selectedCocktail.strDrink}</h2>
               {favoriteImage ? (
