@@ -5,6 +5,7 @@
   margin: 8px;
 
   .card-min {
+    padding: 0;
     border: none;
     border-radius: 16px;
     background: #0e0e0e;
@@ -20,16 +21,19 @@
     .ingredient {
       h1 {
         font-size: 2rem;
+        text-align: start;
         background: -webkit-linear-gradient(#d4ff00, #7dffe0);
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
-
-      li {
-        font-size: 1rem;
-        font-family: JejuGothic;
-        margin-left: 8px;
+      ul {
+        li {
+          font-size: 1rem;
+          font-family: JejuGothic;
+          margin-left: 8px;
+          text-align: start;
+        }
       }
     }
   }
@@ -39,11 +43,11 @@
   justify-content: space-around;
   div {
     display: flex;
+    flex-wrap: wrap;
   }
 
   .slice-button {
     background-color: #181818;
-    width: 2vw;
     color: white;
     border: none;
     display: flex;
@@ -52,18 +56,20 @@
 @media screen and (max-width: 1040px) {
   .mini-card {
     grid-template-columns: 1fr 1fr;
-    .card {
-      h1 {
-        font-size: 1.5rem;
-      }
-
-      h3 {
-        font-size: 0.8rem;
-        margin-left: 4px;
-      }
+    .card-min {
       img {
         width: 20vw;
         height: 20vw;
+      }
+      .ingredient {
+        h1 {
+          font-size: 1.5rem;
+        }
+
+        h3 {
+          font-size: 0.8rem;
+          margin-left: 4px;
+        }
       }
     }
   }
@@ -72,18 +78,20 @@
 @media screen and (max-width: 480px) {
   .mini-card {
     grid-template-columns: 1fr;
-    .card {
-      h1 {
-        font-size: 1rem;
-      }
-
-      h3 {
-        font-size: 0.6rem;
-        margin-left: 2px;
-      }
+    .card-min {
       img {
         width: 30vw;
         height: 30vw;
+      }
+      .ingredient {
+        h1 {
+          font-size: 1rem;
+        }
+
+        h3 {
+          font-size: 0.6rem;
+          margin-left: 2px;
+        }
       }
     }
   }

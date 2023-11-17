@@ -1,15 +1,17 @@
 .filter {
   width: 40vw;
+  border-bottom: 1px solid white;
+
   .list-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     height: 100px;
     overflow-y: auto;
+
     .label-category {
+      font-family: JejuGothic;
       color: white;
-      .label-category {
-        width: 30%;
-      }
+      font-size: 0.8rem;
     }
   }
 }
