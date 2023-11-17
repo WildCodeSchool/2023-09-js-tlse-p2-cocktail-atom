@@ -3,28 +3,21 @@ $family-title: "Oleo Script";
 $size-title: 32px;
 $size-paragraph: 16px;
 
-.main-card {
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  position: absolute;
-  z-index: 8;
-  top: 6%;
-  left: 0;
+.main-random-cocktail {
+  display: flex;
+  justify-content: center;
+  text-align: center;
 
   .style-card {
+    z-index: 2;
+    position: relative;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 0 auto;
     background-color: $background-color;
     border-radius: 24px;
-    max-width: 768px;
-    position: absolute;
-    z-index: 7;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: 32px;
+    padding: 16px;
 
     &::after {
       content: "";
@@ -76,9 +69,9 @@ $size-paragraph: 16px;
 
     h2 {
       font-size: 32px;
-      color: white;
       margin-top: 8px;
       margin-bottom: 8px;
+      color: white;
     }
 
     button {
@@ -130,11 +123,44 @@ $size-paragraph: 16px;
 
   .button-random {
     text-align: center;
-    padding-top: 20px;
 
     button {
-      background-color: rgb(148, 231, 15);
+      z-index: 2;
+      position: relative;
       font-size: 30px;
+      border-radius: 10px;
+      border-width: 1px;
+      padding: 10px 20px;
+      cursor: pointer;
+      display: flex;
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background: #161723;
+        border-radius: inherit;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        inset: -0.1rem;
+        z-index: -1;
+        background: linear-gradient(#d4ff00, #7dffe0);
+        border-radius: 10px;
+      }
+      span {
+        position: relative;
+        z-index: 2;
+        color: transparent;
+        background: linear-gradient(#d4ff00, #7dffe0);
+        -webkit-background-clip: text;
+        background-clip: text;
+      }
+      img {
+        margin-left: 16px;
+      }
     }
   }
 
@@ -150,15 +176,9 @@ $size-paragraph: 16px;
     }
   }
 }
+
 @media (min-width: 768px) {
-  .main-card {
-    top: auto;
-    left: auto;
-
-    .style-card {
-      max-width: 80%;
-    }
-
+  .main-random-cocktail {
     .text-part {
       display: flex;
       flex-direction: row;

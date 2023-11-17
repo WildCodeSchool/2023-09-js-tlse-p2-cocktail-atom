@@ -1,29 +1,40 @@
-import React, { useState, useEffect } from "react";
-import "./Card.scss";
+import React, { useEffect, useState } from "react";
+import "./RandomCocktail.scss";
 import ReactPlayer from "react-player";
-import PropTypes from "prop-types";
+import { useData } from "../contexts/ApiContext";
 import fillHeart from "../assets/icons/fillHeart.svg";
 import unfillHeart from "../assets/icons/unfillHeart.svg";
-import { useData } from "../contexts/ApiContext";
+import logoImage from "../assets/icons/logo.svg";
 
-function Card({ selectedDrinkId, onClose }) {
-  Card.propTypes = {
-    selectedDrinkId: PropTypes.string.isRequired,
-    onClose: PropTypes.func.isRequired,
-  };
-  const [favoriteImage, setFavoriteImage] = useState(true);
+function RandomCocktail() {
   const { data } = useData();
+  const [favoriteImage, setFavoriteImage] = useState(true);
   const [selectedCocktail, setSelectedCocktail] = useState(null);
+  const [currentIdDrink, setCurrentIdDrink] = useState(null);
+
+  const getRandomDrink = () => {
+    if (!data || data.length === 0) {
+      return null;
+    }
+
+    const randomIndex = Math.floor(Math.random() * data.length);
+    return data[randomIndex];
+  };
 
   useEffect(() => {
-    if (data && selectedDrinkId) {
-      const cocktail = data.find((drink) => drink.idDrink === selectedDrinkId);
-      setSelectedCocktail(cocktail);
-    }
-  }, [data, selectedDrinkId]);
+    const randomCocktail = getRandomDrink();
+    setSelectedCocktail(randomCocktail);
+    setCurrentIdDrink(randomCocktail ? randomCocktail.idDrink : null);
+  }, [data]);
 
   const toggleImage = () => {
     setFavoriteImage(!favoriteImage);
+  };
+
+  const changeIdDrink = () => {
+    const randomCocktail = getRandomDrink();
+    setSelectedCocktail(randomCocktail);
+    setCurrentIdDrink(randomCocktail ? randomCocktail.idDrink : null);
   };
 
   if (!selectedCocktail) {
@@ -31,21 +42,8 @@ function Card({ selectedDrinkId, onClose }) {
   }
 
   return (
-    <div
-      className="main-card"
-      onClick={onClose}
-      onKeyDown={onClose}
-      tabIndex={0}
-      role="button"
-    >
-      <div
-        className="style-card"
-        key={selectedCocktail.idDrink}
-        onClick={(e) => e.stopPropagation()}
-        onKeyDown={(e) => e.stopPropagation()}
-        role="button"
-        tabIndex={0}
-      >
+    <div className="main-random-cocktail">
+      <div className="style-card" key={currentIdDrink}>
         <div className="image-part">
           <img
             src={selectedCocktail.strDrinkThumb}
@@ -106,9 +104,15 @@ function Card({ selectedDrinkId, onClose }) {
             </div>
           )}
         </div>
+        <div className="button-random">
+          <button type="button" id="button" onClick={changeIdDrink}>
+            <span>Change Cocktail</span>
+            <img src={logoImage} alt="cocktail-atom logo" />
+          </button>
+        </div>
       </div>
     </div>
   );
 }
 
-export default Card;
+export default RandomCocktail;
