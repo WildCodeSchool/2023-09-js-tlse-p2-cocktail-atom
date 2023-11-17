@@ -55,7 +55,7 @@ function Navbar() {
           </Link>
           <div className="search" onSubmit={(e) => e.preventDefault()}>
             <input
-              placeholder="search"
+              placeholder="Search"
               type="text"
               value={searching}
               onChange={(e) => {

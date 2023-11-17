@@ -12,13 +12,6 @@ function OverlayBurger({ isOpen, onClose }) {
               Home
             </Link>
             <Link
-              to="/favorite"
-              className="favorite-button burger-button"
-              type="button"
-            >
-              Favorite
-            </Link>
-            <Link
               to="/random"
               className="random-button burger-button"
               type="button"

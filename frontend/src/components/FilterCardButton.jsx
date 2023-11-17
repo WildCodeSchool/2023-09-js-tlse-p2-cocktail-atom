@@ -15,7 +15,7 @@ function FilterCardButton({ listCategory, category, setTargetId }) {
   return (
     <div className="filter">
       <button
-        className="cardButton"
+        className="cat-button"
         type="button"
         onClick={() => {
           setValueMobil(!valueMobil);
