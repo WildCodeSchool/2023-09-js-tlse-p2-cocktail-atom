@@ -94,7 +94,7 @@ function MiniCard({ dataMap }) {
           )}
         </div>
       </div>
-      <div>
+      <div className="overlay-card">
         {idDrink && (
           <Card selectedDrinkId={idDrink} onClose={handleCardClose} />
         )}
