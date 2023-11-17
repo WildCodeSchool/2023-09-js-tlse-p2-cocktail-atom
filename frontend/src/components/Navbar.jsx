@@ -16,7 +16,7 @@ function Navbar() {
   const [searching, setSearching] = useState("");
 
   const navigate = useNavigate();
-  const { setValueMobil } = useData();
+  const { setValueMobile } = useData();
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && searching.trim() !== "") {
       navigate(`/search/${searching}`);
@@ -67,7 +67,7 @@ function Navbar() {
               className="search-mobile"
               type="button"
               onClick={() => {
-                setValueMobil(false);
+                setValueMobile(false);
                 if (navFilterOpen) {
                   navigate(`/`);
                   setNavFilterOpen(!navFilterOpen);

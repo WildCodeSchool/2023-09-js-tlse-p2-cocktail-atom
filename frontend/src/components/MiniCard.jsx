@@ -7,9 +7,9 @@ function MiniCard({ dataMap }) {
   const [idDrink, setIdDrink] = useState([]);
   const [buttons, setButtons] = useState([0]);
   const [buttonClick, setButtonClick] = useState(1);
-  const [dataMapClice, setdataMapClice] = useState([]);
+  const [dataMapSlice, setDataMapSlice] = useState([]);
 
-  const hendelclick = (id) => {
+  const handleClickButton = (id) => {
     setIdDrink(id);
   };
   const handleCardClose = () => {
@@ -26,7 +26,7 @@ function MiniCard({ dataMap }) {
   }, [dataMap]);
   useEffect(() => {
     const newData = dataMap.slice(buttonClick * 12 - 12, buttonClick * 12);
-    setdataMapClice(newData);
+    setDataMapSlice(newData);
   }, [buttonClick, dataMap]);
   const handleClick = (elem) => {
     setButtonClick(elem);
@@ -34,12 +34,12 @@ function MiniCard({ dataMap }) {
   return (
     <div>
       <div className="mini-card">
-        {dataMapClice.map((elem) => (
+        {dataMapSlice.map((elem) => (
           <button
             type="button"
             className="card-min"
             key={elem.idDrink}
-            onClick={() => hendelclick(elem.idDrink)}
+            onClick={() => handleClickButton(elem.idDrink)}
           >
             <img src={elem.strDrinkThumb} alt={elem.strDrink} />
             <div className="ingridient">
