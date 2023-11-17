@@ -19,12 +19,12 @@ $size-paragraph: 16px;
     margin: 0 auto;
     background-color: $background-color;
     border-radius: 24px;
-    max-width: 768px;
     position: absolute;
     z-index: 7;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 80%;
 
     &::after {
       content: "";
@@ -156,7 +156,7 @@ $size-paragraph: 16px;
     left: auto;
 
     .style-card {
-      max-width: 80%;
+      width: 50%;
     }
 
     .text-part {
