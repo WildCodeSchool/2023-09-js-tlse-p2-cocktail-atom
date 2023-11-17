@@ -9,6 +9,8 @@ export default function ApiProvider({ children }) {
   const [dataApi, setDataApi] = useState();
   const [dataNoAlcohol, setDataNoAlcohol] = useState(); // Nouvel état pour stocker dataNoAlcohol
   const [alertAge, setAlertAge] = useState(true);
+  const [valueMobile, setValueMobile] = useState(true);
+
   const drinkIncludesNonAlcoholic = (drink) => {
     return Object.values(drink).some((e) => e && e.includes("Non alcoholic"));
   };
@@ -53,8 +55,11 @@ export default function ApiProvider({ children }) {
       alertAge,
       setAlertAge,
       dataNoAlcohol,
+      dataApi,
+      valueMobile,
+      setValueMobile,
     }),
-    [data, dataNoAlcohol, alertAge]
+    [data, dataNoAlcohol, alertAge, valueMobile]
   );
 
   return <ApiContext.Provider value={value}>{children}</ApiContext.Provider>;

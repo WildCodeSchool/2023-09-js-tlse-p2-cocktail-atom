@@ -1,12 +1,10 @@
-import { useState } from "react";
-
 import PropTypes from "prop-types";
 
 import "./FilterCardButton.scss";
+import { useData } from "../contexts/ApiContext";
 
 function FilterCardButton({ listCategory, category, setTargetId }) {
-  const [value, setValue] = useState(true);
-
+  const { valueMobile, setValueMobile } = useData();
   const handleChange = (e) => {
     const result = [e.target.name];
     const condition = e.target.checked;
@@ -20,12 +18,12 @@ function FilterCardButton({ listCategory, category, setTargetId }) {
         className="cat-button"
         type="button"
         onClick={() => {
-          setValue(!value);
+          setValueMobile(!valueMobile);
         }}
       >
         {category}
       </button>
-      {value && (
+      {valueMobile && (
         <div className="list-container">
           {listCategory.map((listElement) => {
             return (

@@ -5,8 +5,12 @@ import MiniCard from "./MiniCard";
 
 function FilterMiniCard({ targetId }) {
   const { data } = useData();
-  const [dataMap, setDataMap] = useState(data);
+  const [dataMap, setDataMap] = useState([]);
   const [filterValue, setFilterValue] = useState([]);
+  useEffect(() => {
+    setDataMap(data);
+  }, [data]);
+
   useEffect(() => {
     if (targetId) {
       if (targetId[1]) {
@@ -44,6 +48,6 @@ function FilterMiniCard({ targetId }) {
   );
 }
 FilterMiniCard.propTypes = {
-  targetId: PropTypes.arrayOf.isRequired,
+  targetId: PropTypes.string.isRequired,
 };
 export default FilterMiniCard;
