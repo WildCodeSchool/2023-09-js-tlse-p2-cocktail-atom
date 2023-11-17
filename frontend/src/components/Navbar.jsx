@@ -8,6 +8,7 @@ import quit from "../assets/icons/quit.svg";
 import "./Navbar.scss";
 import OverlayBurger from "./OverlayBurger";
 import AlertAge from "./AlertAge";
+import { useData } from "../contexts/ApiContext";
 
 function Navbar() {
   const [navBurgerOpen, setNavBurgerOpen] = useState(false);
@@ -15,7 +16,7 @@ function Navbar() {
   const [searching, setSearching] = useState("");
 
   const navigate = useNavigate();
-
+  const { setValueMobil } = useData();
   const handleKeyDown = (e) => {
     if (e.key === "Enter" && searching.trim() !== "") {
       navigate(`/search/${searching}`);
@@ -66,6 +67,7 @@ function Navbar() {
               className="search-mobile"
               type="button"
               onClick={() => {
+                setValueMobil(false);
                 if (navFilterOpen) {
                   navigate(`/`);
                   setNavFilterOpen(!navFilterOpen);

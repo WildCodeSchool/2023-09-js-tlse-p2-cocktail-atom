@@ -1,12 +1,31 @@
 .mini-card {
+  margin-block: 16px 8px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   .card {
     display: flex;
     color: white;
+    background-color: #181818;
+    border: none;
+    margin-bottom: 8px;
     img {
-      width: 15vw;
-      height: 15vw;
+      width: 10vw;
+      height: 10vw;
     }
+  }
+}
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  div {
+    display: flex;
+  }
+
+  .slice-button {
+    background-color: #181818;
+    width: 2vw;
+    color: white;
+    border: none;
+    display: flex;
   }
 }
