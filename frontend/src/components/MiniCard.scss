@@ -1,3 +1,18 @@
+.overlay-card {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  width: 0px;
+  height: 0px;
+  position: fixed;
+  top: 64px;
+  left: 0;
+  cursor: pointer;
+  z-index: 9;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
 .mini-card {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
